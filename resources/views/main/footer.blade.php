@@ -7,22 +7,28 @@
                             <!-- footer About section
                             ========================== -->
                             <div class="footer-about">
-                                <h3 class="footer-title">About</h3>
-                                <p>Nemo enim ipsam voluptatem quia voluptas <br>
-                                    sit aspernatur aut odit aut fugit, sed quia <br>
-                                    magni dolores eos qui ratione. ed quia <br>
-                                    magni dolores</p>
+                                <h3 class="footer-title">Tentang Kami</h3>
+                                <p>Kami adalah startup anak bangsa<br>
+                                    kami hadir untuk mengatasi<br>
+                                    permasalahan di masyarakat<br>
+                                    yaitu tambal ban online</p>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <!-- footer Address section
                             ========================== -->
                             <div class="footer-address">
-                                <h3 class="footer-title">Address</h3>
-                                <p>DeviserWeb 24/A,Jalalabad amborkhana amagnina, Sylhet.</p>
+                                <h3 class="footer-title">Alamat Kami</h3>
+                                <p>Jl Bulak Banteng Lor 4 / 67,Kota Surabaya Indonesia KodePos 60127</p>
                                 <p class="contact-address">
-                                    Contact us : <a href="tel:+610383666274">+61 (0) 3 8366 6274 </a> <br>
-                                    Write us : <a href="mailto:info@info.com">mail@itsnuman.com</a>
+                                    <table>
+                                    <tr>
+                                    <td>Kontak Kami&nbsp;</td><td> <a href="tel:+6289676301281">: +6289676301281</a> </td>
+                                    </tr>
+                                    <tr>
+                                    <td>Berikan Ulasan Ke &nbsp;</td><td><a href="ii.ilhamibrahim@gmail.com">: ii.ilhamibrahim@gmail.com</a></td>
+                                    </tr>
+                                    </table>
                                 </p>
                             </div>
                         </div>
@@ -30,7 +36,7 @@
                             <!-- footer Media link section
                             ========================== -->
                             <div class="footer-social-media">
-                                <h3 class="footer-title">Keep in touch</h3>
+                                <h3 class="footer-title">Temukan Kami di</h3>
                                 <ul class="footer-media-link">
                                     <li><a href="#"><i class="tf-ion-social-facebook" aria-hidden="true"></i></a></li>
                                     <li><a href="#"><i class="tf-ion-social-twitter" aria-hidden="true"></i></a></li>

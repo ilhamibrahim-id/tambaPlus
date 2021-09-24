@@ -7,8 +7,10 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h1>We’re Creative <br>
-            We Ensure Quality Design</h1>
+          <h1><u><i>Nails</i></u>
+            <br />
+            Every Day<br />
+            <a class="btn btn-default btn-main" href="#" role="button">Bergabung Bersama Kami ?</a></h1>
         </div>
       </div>
     </div>

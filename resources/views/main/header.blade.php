@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Fiction Multipage Bootstrap Template</title>
+    <title>Tambah+</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -68,7 +68,7 @@
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand logo" href="index.html">
-          <img src="images/logo-yellow.png" alt="">
+          <img src="{{asset('images/logo.png')}}" alt="">
         </a>
       </div>
 
