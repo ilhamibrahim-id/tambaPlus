@@ -18,9 +18,15 @@ body {
   -moz-font-smoothing: antialiased;
 }
 
+@font-face {
+  font-family: 'blogger-sans-bold';
+  src: url('/font/BloggerSans-Medium.woff') format('woff');
+}
+
+
 /* Heading Fonts Size */
 h1, h2, h3 {
-  font-family: "Playfair Display", serif;
+  font-family: 'blogger-sans-bold';
   color: #ffd700;
 }
 
