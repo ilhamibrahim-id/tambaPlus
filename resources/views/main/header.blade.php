@@ -31,6 +31,6 @@
       }
       /* Optional: Makes the sample page fill the window. */
     </style>
-    <script src="{{asset('plugins/modernizr.min.js"')}}'></script>
+    <script src="{{asset('plugins/modernizr.min.js')}}"></script>
   </head>
   @yield('konten')
