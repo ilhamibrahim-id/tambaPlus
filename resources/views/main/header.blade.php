@@ -68,7 +68,7 @@
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand logo" href="index.html">
-          <img src="{{asset('images/logo.png')}}" alt="">
+          <img src="{{asset('images/logo3.png')}}" alt="" style="height: 185%">
         </a>
       </div>
 
