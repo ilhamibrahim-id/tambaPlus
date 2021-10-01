@@ -87,6 +87,7 @@
           </div>
           <div class="col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2 padding-0 slider-main">
             <div class="testimonial-slider">
+                <h2>Clients Opinion</h2>
               <div class="item">
                 <!-- Slider item -->
                 <!-- <div class="col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2 padding-0"> -->
