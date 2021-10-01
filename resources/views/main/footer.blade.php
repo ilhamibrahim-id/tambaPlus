@@ -53,19 +53,18 @@
                     <div class="footer-nav text-center">
                         <div class="col-md-12">
                             <ul>
-                                <li><a href="index.html">Home</a></li>
-                                <li><a href="services.html">Services</a></li>
-                                <li><a href="portfolio.html">Portfolio</a></li>
-                                <li><a href="#">Our Team</a></li>
-                                <li><a href="contact.html">Contact</a></li>
+                                <li><a href="/">Home</a></li>
+                                <li><a href="/servis">Service</a></li>
+                                <li><a href="/kontak">Contact</a></li>
+                                <li><a href="/blog">Blog</a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="text-center">
                         <div class="col-md-12">
                             <div class="copyright">
-                                <p>&copy; 2013-2017 All rights reserved. <br>
-                                    Design and Developed By <a href="https://themefisher.com">Themefisher.com</a></p>
+                                <p>&copy; 2021 All rights reserved. <br>
+                                    </p>
                             </div>
                         </div>
                     </div>
