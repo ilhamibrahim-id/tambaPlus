@@ -134,45 +134,6 @@
 				<a href="#" class="list-group-item">Modern Design</a>
 			</div>
 		</div>
-		<div class="related-post widgets">
-			<div class="list-group">
-				<div class="list-group-item active text-center">
-				Related Post
-				</div>
-				<a href="#" class="list-group-item">
-					<div class="media">
-					  <div class="media-left media-middle"><p class="post-count">1</p></div>
-					  <div class="media-body">
-					    <p>Typography is  important fact for liusto odio dolore.</p>
-					  </div>
-					</div>
-				</a>
-				<a href="#" class="list-group-item">
-					<div class="media">
-					  <div class="media-left media-middle"><p class="post-count">2</p></div>
-					  <div class="media-body">
-					    <p>Typography is  important fact for liusto odio dolore.</p>
-					  </div>
-					</div>
-				</a>
-				<a href="#" class="list-group-item">
-					<div class="media">
-					  <div class="media-left media-middle"><p class="post-count">3</p></div>
-					  <div class="media-body">
-					    <p>Typography is  important fact for liusto odio dolore.</p>
-					  </div>
-					</div>
-				</a>
-				<a href="#" class="list-group-item">
-					<div class="media">
-					  <div class="media-left media-middle"><p class="post-count">4</p></div>
-					  <div class="media-body">
-					    <p>Typography is  important fact for liusto odio dolore.</p>
-					  </div>
-					</div>
-				</a>
-			</div>
-		</div>
 	</div>
         </div>
       </div>
