@@ -78,6 +78,7 @@
           <li><a href="/">Home</a></li>
           <li><a href="/servis">Service</a></li>
           <li><a href="/kontak">Contact</a></li>
+          <li><a href="/blog">Blog</a></li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div>

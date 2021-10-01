@@ -7,20 +7,51 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h1 class="text-center">Contact Us. <br> We Ensure Quality Design.</h1>
+          <h1 class="text-center">Kontak Kami</h1>
         </div>
       </div>
     </div>
   </section>
-
+  <section class="contact-form">
+    <div class="container">
+      <div class="row">
+        <div class="title text-center">
+          <h2>Hubungi Kami</h2>
+        </div>
+        <form class="" method="post">
+          <div class="col-md-6">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Subject">
+            </div>
+            <div class="form-group">
+              <input type="email" class="form-control" placeholder="Email">
+            </div>
+            <div class="form-group margin-0">
+              <input type="text" class="form-control" placeholder="Name">
+            </div>
+          </div>
+          <div class="col-md-6 margin-0">
+            <div class="form-group">
+              <textarea class="form-control " rows="3" placeholder="Message"></textarea>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="contact-btn text-center">
+              <input class="btn btn-default btn-main" type="submit" value="Sent Message">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
     <!-- Google map Study Sections
     =========================-->
   <section class="contact-map">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-md-12 padding-0">
+        <div class="col-md-12  padding-0">
           <!-- map -->
-           <div id="map" data-latitude="51.507351" data-longitude="-0.127758"></div>
+           <div id="row"><img src="{{asset('images/maps.png')}}"></div>
           <!-- Contact Information -->
           <div class="contact-info">
             <div class="contact-img">
@@ -28,14 +59,14 @@
             </div>
             <div class="contact-content">
               <div class="content-title-section">
-                <h3 class="content-title">redcodder solution</h3>
+                <h3 class="content-title"TAMBA+</h3>
               </div>
               <div class="home-address">
                 <div class="flex">
                   <div class="contact-icon">
                     <i class="tf-ion-ios-home-outline"></i>
                   </div>
-                  <p class="ct-info">24 Golden Tower (2nd Floor),  Sylhet.</p>
+                  <p class="ct-info">Jl Bulak Banteng Lor 4/67,Kota Surabaya Indonesia</p>
                 </div>
               </div>
               <div class="web-address">
@@ -43,7 +74,7 @@
                   <div class="contact-icon">
                     <i class="tf-global"></i>
                   </div>
-                  <a href="#" class="ct-info">deviserweb.com</a>
+                  <a href="#" class="ct-info">tamba.plus</a>
                 </div>
               </div>
               <div class="phone-address">
@@ -51,13 +82,8 @@
                   <div class="contact-icon">
                     <i class="fa fa-phone" aria-hidden="true"></i>
                   </div>
-                  <p class="ct-info">01771-299299 (Mobile)</p>
+                  <p class="ct-info">089676301281 (Whatsapp / telp)</p>
                 </div>
-              </div>
-              <div class="contact-protfolio">
-                <img src="images/contact/contact-img2.png" alt="">
-                <img src="images/contact/contact-img3.png" alt="">
-                <img src="images/contact/contact-img4.png" alt="">
               </div>
             </div>
           </div>
@@ -68,37 +94,92 @@
 
    <!-- Contact From Study Sections
     =========================-->
-   <section class="contact-form">
-     <div class="container">
-       <div class="row">
-         <div class="title text-center">
-           <h2>Contact Us</h2>
-         </div>
-         <form class="" method="post">
-           <div class="col-md-6">
-             <div class="form-group">
-               <input type="text" class="form-control" placeholder="Subject">
-             </div>
-             <div class="form-group">
-               <input type="email" class="form-control" placeholder="Email">
-             </div>
-             <div class="form-group margin-0">
-               <input type="text" class="form-control" placeholder="Name">
-             </div>
-           </div>
-           <div class="col-md-6 margin-0">
-             <div class="form-group">
-               <textarea class="form-control " rows="3" placeholder="Message"></textarea>
-             </div>
-           </div>
-           <div class="col-md-12">
-             <div class="contact-btn text-center">
-               <input class="btn btn-default btn-main" type="submit" value="Sent Message">
-             </div>
-           </div>
-         </form>
-       </div>
-     </div>
-   </section>
+
+   <section class="team">
+    <div class="container-fluid padding-0">
+    <!-- Team title -->
+    <div class="title text-center">
+      <h2>Our Specialized Team</h2>
+    </div>
+    <div class="col-md-6 col-lg-4 padding-0">
+      <div class="team-member">
+        <div class="th-mouse-effect">
+          <div class="team-img">
+            <img src="images/team/team-pic1.jpg" alt="Team img">
+          </div>
+          <div class="overlay text-center">
+            <div class="content">
+              <h4>aurelien salomon</h4>
+              <span>Creative Director</span>
+              <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim.</p>
+
+            </div>
+            <div class="social-media">
+              <li><a href="#"><i class="tf-ion-social-facebook" aria-hidden="true"></i></a></li>
+              <li><a href="#"><i class="tf-ion-social-twitter" aria-hidden="true"></i></a></li>
+              <li><a href="#"><i class="tf-ion-social-linkedin-outline" aria-hidden="true"></i></a></li>
+              <li><a href="#"><i class="tf-ion-social-google-outline" aria-hidden="true"></i></a></li>
+              <li><a href="#"><i class="tf-ion-social-instagram-outline" aria-hidden="true"></i></a></li>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-4 padding-0">
+      <div class="team-member">
+        <div class="th-mouse-effect">
+          <div class="team-img">
+            <img src="images/team/team-pic2.jpg" alt="Team img">
+          </div>
+          <div class="overlay text-center">
+            <div class="content">
+              <h4>aurelien salomon</h4>
+              <span>Creative Director</span>
+              <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim.</p>
+
+            </div>
+            <div class="social-media">
+              <li><a href="#"><i class="tf-ion-social-facebook" aria-hidden="true"></i></a></li>
+              <li><a href="#"><i class="tf-ion-social-twitter" aria-hidden="true"></i></a></li>
+              <li><a href="#"><i class="tf-ion-social-linkedin-outline" aria-hidden="true"></i></a></li>
+              <li><a href="#"><i class="tf-ion-social-google-outline" aria-hidden="true"></i></a></li>
+              <li><a href="#"><i class="tf-ion-social-instagram-outline" aria-hidden="true"></i></a></li>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-4 padding-0">
+      <div class="team-member">
+        <div class="th-mouse-effect">
+          <div class="team-img">
+            <img src="images/team/team-pic3.jpg" alt="Team img">
+          </div>
+          <div class="overlay text-center">
+            <div class="content">
+              <h4>aurelien salomon</h4>
+              <span>Creative Director</span>
+              <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim.</p>
+
+            </div>
+            <div class="social-media">
+              <li><a href="#"><i class="tf-ion-social-facebook" aria-hidden="true"></i></a></li>
+              <li><a href="#"><i class="tf-ion-social-twitter" aria-hidden="true"></i></a></li>
+              <li><a href="#"><i class="tf-ion-social-linkedin-outline" aria-hidden="true"></i></a></li>
+              <li><a href="#"><i class="tf-ion-social-google-outline" aria-hidden="true"></i></a></li>
+              <li><a href="#"><i class="tf-ion-social-instagram-outline" aria-hidden="true"></i></a></li>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="join-team text-center">
+        <a class="btn btn-default btn-main" href="#" role="button">Join Our Team</a>
+      </div>
+    </div>
+    </div>
+  </section>
    @include('main.footer')
 @endsection

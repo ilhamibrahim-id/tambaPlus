@@ -22,3 +22,9 @@ Route::get('/servis', function () {
 Route::get('/kontak', function () {
     return view('kontak');
 });
+Route::get('/blog', function () {
+    return view('blog');
+});
+Route::get('/blog-single', function () {
+    return view('blog-single');
+});
