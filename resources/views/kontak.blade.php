@@ -99,7 +99,7 @@
     <div class="container-fluid padding-0">
     <!-- Team title -->
     <div class="title text-center">
-      <h2>Our Specialized Team</h2>
+      <h2>Pendiri Tamba Plus</h2>
     </div>
     <div class="col-md-6 col-lg-4 padding-0">
       <div class="team-member">
@@ -109,9 +109,9 @@
           </div>
           <div class="overlay text-center">
             <div class="content">
-              <h4>aurelien salomon</h4>
-              <span>Creative Director</span>
-              <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim.</p>
+              <h4>Vega Anggaresta</h4>
+              <span>Manajemen Sistem</span>
+              <p>Nothing Last Forever We Can Changes The Future.</p>
 
             </div>
             <div class="social-media">
@@ -133,9 +133,9 @@
           </div>
           <div class="overlay text-center">
             <div class="content">
-              <h4>aurelien salomon</h4>
-              <span>Creative Director</span>
-              <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim.</p>
+              <h4>Ilham Ibrahim</h4>
+              <span>Front End</span>
+              <p>Gelap ? Siapa Takut</p>
 
             </div>
             <div class="social-media">
@@ -157,9 +157,9 @@
           </div>
           <div class="overlay text-center">
             <div class="content">
-              <h4>aurelien salomon</h4>
-              <span>Creative Director</span>
-              <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim.</p>
+              <h4>Awang Syukriansah Dirgantoro</h4>
+              <span>Back End</span>
+              <p>Healing For Everyone</p>
 
             </div>
             <div class="social-media">

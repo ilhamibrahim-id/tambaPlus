@@ -6,7 +6,7 @@
     <title>Tambah+</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <link rel="icon" href="{{asset('images/logo3.png')}}" width="50px" height="50px">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <!-- Place favicon.ico in the root directory -->
 
@@ -79,6 +79,7 @@
           <li><a href="/servis">Service</a></li>
           <li><a href="/kontak">Contact</a></li>
           <li><a href="/blog">Blog</a></li>
+          <li><a class="btn btn-default btn-main" href="/join" role="button">Daftar Menjadi Mitra</a></li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div>

@@ -30,3 +30,7 @@ Route::middleware(['auth','cekrole:karyawan'])->prefix('karyawan')->group(functi
 Route::middleware(['auth','cekrole:admin'])->prefix('karyawan')->group(function(){
     Route::get('');
 });
+    
+Route::get('/join', function () {
+    return view('join');
+});
