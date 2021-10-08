@@ -22,7 +22,6 @@
 
     <!-- Revolution Slider -->
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
-
     <style>
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */

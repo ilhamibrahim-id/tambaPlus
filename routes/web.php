@@ -5,7 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Models\Layanan;
 
-Route::get('/home', function () {
+Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/servis', [DashboardController::class, 'layanan']);
@@ -19,7 +19,7 @@ Route::get('/blog-single', function () {
     return view('blog-single');
 });
 
-Route::get('/', [LoginController::class, 'index'])->name('/');
+Route::get('/lgn', [LoginController::class, 'index'])->name('/');
 
 Route::prefix('login')->group(function() {
     Route::post('/', [LoginController::class, 'store'])->name('login');
