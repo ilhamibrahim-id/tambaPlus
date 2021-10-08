@@ -25,11 +25,23 @@
           <div class="col-md-4">
             <div class="service-item text-center">
               <div class="services-icon">
+                <i class="tf-presentation"></i>
+              </div>
+              <h4 class="service-title">Isi Angin</h4>
+              <p class="service-description">
+                Banyak dari kita tidak menyadari bahwa kendaraan kita kurang angin sehingga hal ini tidak bisa dianggap remeh,
+                tamba plus siap sedia mengisi angin di ban kendaraan anda.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="service-item text-center">
+              <div class="services-icon">
                 <i class="tf-mobile"></i>
               </div>
-              <h4 class="service-title">Mobile App UI</h4>
+              <h4 class="service-title">Ban Biasa</h4>
               <p class="service-description">
-                We provide various  mobile app UI Design services Android, ios,windows phone. As well as we follow latest trend in our molestie consequat .
+                Kami melayani ban biasa pada umumnya tak usah khawatir ban anda tidak bisa kami layani.
               </p>
             </div>
           </div>
@@ -38,20 +50,10 @@
               <div class="services-icon">
                 <i class="tf-telescope"></i>
               </div>
-              <h4 class="service-title">Mobile App UI</h4>
+              <h4 class="service-title">Ban Tubles</h4>
               <p class="service-description">
-                We provide various  mobile app UI Design services Android, ios,windows phone. As well as we follow latest trend in our molestie consequat .
-              </p>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="service-item text-center">
-              <div class="services-icon">
-                <i class="tf-presentation"></i>
-              </div>
-              <h4 class="service-title">Mobile App UI</h4>
-              <p class="service-description">
-                We provide various  mobile app UI Design services Android, ios,windows phone. As well as we follow latest trend in our molestie consequat .
+                Seperti yang kita tau bahwa ban tubles sangat kuat menghadapi rintangan paku dijalan tapi tidak menjadi kemungkinan
+                bahwa ban tubles bisa terjadi bocor maka kami juga siap melayani ban tubles yang sedang bocor.
               </p>
             </div>
           </div>
@@ -66,7 +68,7 @@
         <div class="row">
           <div class="col-md-12">
             <div class="title text-center">
-              <h2>Our Pricing</h2>
+              <h2>Harga Penawaran</h2>
             </div>
           </div>
           <div class="col-md-4">
@@ -74,7 +76,35 @@
               <!-- pricing table
               ===================== -->
               <div class="table-price border-effect">
-                <h4 class="pricing-title">extended Version</h4>
+                <h4 class="pricing-title">Isi Angin</h4>
+                <h2 class="price">Rp. 3.000</h2>
+                <p class="table-month">/ Ban</p>
+              </div>
+              <div class="pricing-list border-effect">
+                <ul class="features-list">
+                  <li>
+                    <p>
+                      <i class="tf-ion-ios-checkmark-outline" aria-hidden="true"></i>
+                      Di Isi Dengan Standard Ban
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <i class="tf-ion-ios-checkmark-outline" aria-hidden="true"></i>
+                      Bisa Di Isi Sesuai Keinginan Tekanan Angin
+                    </p>
+                  </li>
+                </ul>
+                <input type="button" class="btn btn-default btn-main th-btn-border" value="pesan sekarang">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="table text-center">
+              <!-- pricing table
+              ===================== -->
+              <div class="table-price border-effect">
+                <h4 class="pricing-title">Ban Biasa</h4>
                 <h2 class="price">Rp. 10.000</h2>
                 <p class="table-month">/ Lubang</p>
               </div>
@@ -83,23 +113,23 @@
                   <li>
                     <p>
                       <i class="tf-ion-ios-checkmark-outline" aria-hidden="true"></i>
-                      Web Design Service
+                      Dikerjakan Dengan Cepat
                     </p>
                   </li>
                   <li>
                     <p>
                       <i class="tf-ion-ios-checkmark-outline" aria-hidden="true"></i>
-                      Web Development
+                      Melakukan Metode Tambal Ban yang Praktis
                     </p>
                   </li>
                   <li>
                     <p>
                       <i class="tf-ion-ios-checkmark-outline" aria-hidden="true"></i>
-                      Mobile Application
+                      Melakukan Tambal Ban dengan Baik
                     </p>
                   </li>
                 </ul>
-                <input type="button" class="btn btn-default btn-main th-btn-border" value="Order Now">
+                <input type="button" class="btn btn-default btn-main th-btn-border" value="pesan sekarang">
               </div>
             </div>
           </div>
@@ -108,41 +138,7 @@
               <!-- pricing table
               ===================== -->
               <div class="table-price border-effect">
-                <h4 class="pricing-title">Standard Version</h4>
-                <h2 class="price">Rp. 15.000</h2>
-                <p class="table-month">/ Lubang</p>
-              </div>
-              <div class="pricing-list border-effect">
-                <ul class="features-list">
-                  <li>
-                    <p>
-                      <i class="tf-ion-ios-checkmark-outline" aria-hidden="true"></i>
-                      Web Design Service
-                    </p>
-                  </li>
-                  <li>
-                    <p>
-                      <i class="tf-ion-ios-checkmark-outline" aria-hidden="true"></i>
-                      Web Development
-                    </p>
-                  </li>
-                  <li>
-                    <p>
-                      <i class="tf-ion-ios-checkmark-outline" aria-hidden="true"></i>
-                      Mobile Application
-                    </p>
-                  </li>
-                </ul>
-                <input type="button" class="btn btn-default btn-main th-btn-border" value="Order Now">
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="table text-center">
-              <!-- pricing table
-              ===================== -->
-              <div class="table-price border-effect">
-                <h4 class="pricing-title">Premium Version</h4>
+                <h4 class="pricing-title">Ban Tubles</h4>
                 <h2 class="price">Rp. 20.000</h2>
                 <p class="table-month">/ Lubang</p>
               </div>
@@ -151,23 +147,23 @@
                   <li>
                     <p>
                       <i class="tf-ion-ios-checkmark-outline" aria-hidden="true"></i>
-                      Web Design Service
+                      Tubles Menggunakan Alat Modern
                     </p>
                   </li>
                   <li>
                     <p>
                       <i class="tf-ion-ios-checkmark-outline" aria-hidden="true"></i>
-                      Web Development
+                      Pengerjaan Tidak Sampai 10 Menit
                     </p>
                   </li>
                   <li>
                     <p>
                       <i class="tf-ion-ios-checkmark-outline" aria-hidden="true"></i>
-                      Mobile Application
+                      Menggunakan Karet Standard Tubles
                     </p>
                   </li>
                 </ul>
-                <input type="button" class="btn btn-default btn-main th-btn-border" value="Order Now">
+                <input type="button" class="btn btn-default btn-main th-btn-border" value="pesan sekarang">
               </div>
             </div>
           </div>
