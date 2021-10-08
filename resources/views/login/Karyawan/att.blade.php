@@ -9,25 +9,13 @@
                             <thead class=" text-primary">
                                 <thead>
                                     <tr>
-                                        <th>Matakuliah</th>
-                                        <th>Kode Pengajar</th>
-                                        <th>SKS</th>
+                                        <th>List Job</th>
+                                        <th>Deskripsi</th>
+                                        <th>Status</th>
                                     </tr>
                                 </thead>
                             <tbody>
-                                @foreach ($dsn->matakuliah as $kelasa)
-                                    <tr>
-                                        <td>
-                                            {{ $kelasa->nama_mk }}
-                                        </td>
-                                        <td>
-                                            {{ $kelasa->pivot->kode_pengajar }}
-                                        </td>
-                                        <td>
-                                            {{ $kelasa->sks }}
-                                        </td>
-                                    </tr>
-                                @endforeach
+                               
                             </tbody>
                         </table>
                         <hr />

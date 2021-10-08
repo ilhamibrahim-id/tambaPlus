@@ -7,7 +7,7 @@
     <link rel="icon" type="image/png" href="{{ asset('assets/img/favicon.png') }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
-        Sistem Informasi Nilai Mahasiswa Polinema
+        Sistem Informasi Karyawan TambaPlus
     </title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
         name='viewport' />
@@ -102,7 +102,7 @@
                         <li class="{{ request()->is('dosen/kelas') ? 'active' : '' }}">
                             <a href="/dosen/kelas">
                                 <i class="nc-icon nc-bank"></i>
-                                <p> Kelas </p>
+                                <p> Job </p>
                             </a>
                         </li>
                     @endif
@@ -110,23 +110,7 @@
                         <li class="{{ request()->is('dosen/nilai') ? 'active' : '' }}">
                             <a href="/dosen/nilai">
                                 <i class="nc-icon nc-globe-2"></i>
-                                <p> Nilai </p>
-                            </a>
-                        </li>
-                    @endif
-                    @if (auth()->user()->role == 'mahasiswa')
-                        <li class="{{ request()->is('mahasiswa/kelas') ? 'active' : '' }}">
-                            <a href="/mahasiswa/kelas">
-                                <i class="nc-icon nc-bank"></i>
-                                <p> Kelas </p>
-                            </a>
-                        </li>
-                    @endif
-                    @if (auth()->user()->role == 'mahasiswa')
-                        <li class="{{ request()->is('mahasiswa/nilai') ? 'active' : '' }}">
-                            <a href="/mahasiswa/nilai">
-                                <i class="nc-icon nc-globe-2"></i>
-                                <p> Nilai </p>
+                                <p> Laporan </p>
                             </a>
                         </li>
                     @endif
@@ -144,7 +128,7 @@
                                 <span class="navbar-toggler-bar bar3"></span>
                             </button>
                         </div>
-                        <a class="navbar-brand" href="javascript:;">Sistem Informasi Penilaian Mahasiswa</a>
+                        <a class="navbar-brand" href="javascript:;">Sistem Informasi Kayawan TambaPlus</a>
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
                         aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
