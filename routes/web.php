@@ -17,3 +17,6 @@ Route::get('/blog', function () {
 Route::get('/blog-single', function () {
     return view('blog-single');
 });
+Route::get('/join', function () {
+    return view('join');
+});
