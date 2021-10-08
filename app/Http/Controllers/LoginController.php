@@ -19,7 +19,7 @@ class LoginController extends Controller
             return redirect()->route('main.dashboard');
         }
 
-        return view('login.login.login', ['roles' => end($roles)]);
+        return view('inti.login.login', ['roles' => end($roles)]);
     }
 
     public function store(LoginRequest $request)

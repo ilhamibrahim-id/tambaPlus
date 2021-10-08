@@ -1,4 +1,4 @@
-@extends('login.header')
+@extends('inti.login.header')
 @section('konten')
 
     <body style="background-image: url('{{ url('images/polinema.png') }}');">
@@ -41,7 +41,7 @@
                                 </div>
                             </form>
                             <div class="w-100 text-center mt-4 text">
-                                <a href="{{ route('register.mahasiswa') }}"
+                                <a href=""
                                     class="text-primary mb-0">Tidak Punya Akun ? klik disini <br /><br />
                                 </a>
                             </div>

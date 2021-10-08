@@ -5,7 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Models\Layanan;
 
-Route::get('/', function () {
+Route::get('/home', function () {
     return view('welcome');
 });
 Route::get('/servis', [DashboardController::class, 'layanan']);
@@ -19,6 +19,8 @@ Route::get('/blog-single', function () {
     return view('blog-single');
 });
 
+Route::get('/', [LoginController::class, 'index'])->name('/');
+
 Route::prefix('login')->group(function() {
     Route::post('/', [LoginController::class, 'store'])->name('login');
 });
@@ -30,7 +32,7 @@ Route::middleware(['auth','cekrole:karyawan'])->prefix('karyawan')->group(functi
 Route::middleware(['auth','cekrole:admin'])->prefix('karyawan')->group(function(){
     Route::get('');
 });
-    
+
 Route::get('/join', function () {
     return view('join');
 });
