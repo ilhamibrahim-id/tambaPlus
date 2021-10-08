@@ -1,6 +1,5 @@
 @extends('inti.login.header')
 @section('konten')
-
     <body style="background-image: url('{{ url('images/polinema.png') }}');">
         <section class="ftco-section">
             <div class="container">
@@ -16,9 +15,9 @@
                                     @endforeach
                                 </div>
                             @endif
-                            <h3 class="text-center mb-0">Sistem Informasi Nilai Mahasiswa</h3>
-                            <div class="img d-flex align-items-center justify-content-center"
-                                style="background-image: url('{{ url('images/polinema.png') }}');"></div>
+                            <h3 class="text-center mb-0">Manajemen Karyawan</h3>
+                            <br />
+                                <img src="{{url('images/logo.png')}}">
                             <p class="text-center">Login : </p>
                             <form action="{{ route('login') }}" method="POST" class="login-form">
                                 @csrf
@@ -40,15 +39,10 @@
                                         class="btn form-control btn-primary rounded submit px-3">Login</button>
                                 </div>
                             </form>
-                            <div class="w-100 text-center mt-4 text">
-                                <a href=""
-                                    class="text-primary mb-0">Tidak Punya Akun ? klik disini <br /><br />
-                                </a>
-                            </div>
                         </div>
                         <footer class="bg-light text-center text-lg-start">
                             <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-                                © 2021 Copyright: Clan Anckerman
+                                © 2021 Copyright: Geal Geol Team
                             </div>
                         </footer>
                     </div>
