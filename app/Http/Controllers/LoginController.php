@@ -14,9 +14,9 @@ class LoginController extends Controller
 
         if(Auth::check()) {
             if(end($roles) !== Auth::user()->roles)
-                return redirect()->route('main.dashboard');
+                return redirect()->route('inti.main.dashboard');
                 
-            return redirect()->route('main.dashboard');
+            return redirect()->route('inti.main.dashboard');
         }
 
         return view('inti.login.login', ['roles' => end($roles)]);
@@ -29,7 +29,7 @@ class LoginController extends Controller
         if(Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect()->route('main.dashboard');
+            return redirect()->route('inti.main.dashboard');
         }
 
         return back()->withErrors(['error' => 'Data Tidak Valid']);
