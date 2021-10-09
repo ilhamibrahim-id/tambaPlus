@@ -105,7 +105,10 @@
                                         <th>Gaji</th>
                                         <th>Action</th>
                                     @elseif ((request()->is('admin/blog')) ||(request()->is('admin/blog/cari')))
-                                        <th>Alamat</th>
+                                        <th>Judul</th>
+                                        <th>Isi</th>
+                                        <th>Gambar</th>
+                                        <th>Action</th>
                                     @elseif ((request()->is('admin/layanan')) ||(request()->is('admin/layanan/cari')))
                                         <th>Alamat</th>
                                     @elseif ((request()->is('admin/admin')) ||(request()->is('admin/admin/cari')))
@@ -246,7 +249,28 @@
                                             </tr>
                                         @endforeach
                                     @elseif ((request()->is('admin/blog')) ||(request()->is('admin/blog/cari')))
-                                        <th>Alamat</th>
+                                        @foreach ($blog as $bg)
+                                            <tr>
+                                                <th>
+                                                    {{ $bg->judul }}
+                                                </th>
+                                                <th>
+                                                    {{ $bg->isi }}
+                                                </th>
+                                                <th>
+                                                    {{ $bg->gambar }}
+                                                </th>
+                                                <th>
+                                                    <button type="submit"
+                                                        class="btn form-control btn-primary rounded submit px-3"
+                                                        onclick="location.href='/admin/blog/edit/{{ $bg->id }}';">Edit
+                                                        Data</button>
+                                                    <button type="submit"
+                                                        class="btn form-control btn-danger rounded submit px-3"
+                                                        onclick="location.href='/admin/blog/hapus/{{ $bg->id }}';">Hapus</button>
+                                                </th>
+                                            </tr>
+                                        @endforeach
                                     @elseif ((request()->is('admin/layanan')) ||(request()->is('admin/layanan/cari')))
                                         <th>Alamat</th>
                                     @elseif ((request()->is('admin/admin')) ||(request()->is('admin/admin/cari')))
@@ -260,15 +284,15 @@
                             @elseif ((request()->is('admin/listjob')) || (request()->is('admin/listjob/cari')))
                                 {{ $lj->render('pagination::bootstrap-4') }}
                             @elseif ((request()->is('admin/job')) || (request()->is('admin/job/cari')))
-                                {{ $jabatan->render('pagination::bootstrap-4') }}
+                                {{ $job->render('pagination::bootstrap-4') }}
                             @elseif ((request()->is('admin/jabatan')) ||(request()->is('admin/jabatan/cari')))
-
+                                {{ $jabatan->render('pagination::bootstrap-4') }}
                             @elseif ((request()->is('admin/blog')) ||(request()->is('admin/blog/cari')))
-                                        
+                                {{ $blog->render('pagination::bootstrap-4') }}
                             @elseif ((request()->is('admin/layanan')) ||(request()->is('admin/layanan/cari')))
-                                        
+                                {{ $lyn->render('pagination::bootstrap-4') }}
                             @elseif ((request()->is('admin/admin')) ||(request()->is('admin/admin/cari')))
-                                        
+                                {{ $admin->render('pagination::bootstrap-4') }}
                             @endif
                         </div>
                     </div>

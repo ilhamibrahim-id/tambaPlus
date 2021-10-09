@@ -218,6 +218,45 @@ class AdminController extends Controller
         return view('inti.main.table', compact('data', 'blog'));
     }
 
+    public function tambahblog()
+    {
+        $data = Admin::where('username', '=', auth()->user()->username)->first();
+        return view('inti.main.tambah_blog', compact('data'));
+    }
+
+    public function storeblog(Request $request)
+    {
+        DB::table('blog')->insert([
+            'judul' => $request->judul,
+            'isi' => $request->isi,
+            'gambar' => $request->gambar,
+        ]);
+        return redirect('admin/blog');
+    }
+
+    public function hapusblog($id)
+    {
+        DB::table('blog')->where('id', $id)->delete();
+        return back();
+    }
+
+    public function editblog($id)
+    {
+        $data = Admin::where('username', '=', auth()->user()->username)->first();
+        $kry = Blog::where('id', $id)->first();;
+        return view('inti.main.edit_blog', compact('data', 'kry'));
+    }
+
+    public function updateblog(Request $request)
+    {
+        DB::table('blog')->where('id', $request->id)->update([
+            'judul' => $request->judul,
+            'isi' => $request->isi,
+            'gambar' => $request->gambar
+        ]);
+        return redirect('admin/blog');
+    }
+
     //////////////////////////
     // FUNGSI UNTUK LAYANAN //
     //////////////////////////
