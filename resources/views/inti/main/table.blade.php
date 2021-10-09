@@ -82,7 +82,7 @@
                         @elseif ((request()->is('admin/jabatan')) ||(request()->is('main/carilayanan')))
                             onclick="location.href='/main/layanan/tambah';"
                         @elseif ((request()->is('admin/karyawan')) || (request()->is('main/carikaryawan')))
-                            onclick="location.href='/main/karyawan/tambah';"
+                            onclick="location.href='/admin/karyawan/tambah';"
                             =
                     @endif>
                     <i class="nc-icon nc-simple-add"> Tambah Data</i></button>
@@ -169,30 +169,36 @@
                                 <tbody>
                                     @if (request()->is('admin/karyawan') || request()->is('main/carikaryawan'))
                                         @foreach ($kry as $karyawan)
-                                            <th>
-                                                {{ $karyawan->nik }}
-                                            </th>
-                                            <th>
-                                                {{ $karyawan->nama }}
-                                            </th>
-                                            <th>
-                                                {{ $karyawan->jabatan->nama }}
-                                            </th>
-                                            <th>
-                                                {{ $karyawan->tlpn }}
-                                            </th>
-                                            <th>
-                                                {{ $karyawan->email }}
-                                            </th>
-                                            <th>
-                                                {{ $karyawan->alamat }}
-                                            </th>
-                                            <th>
-                                                {{ $karyawan->username }}
-                                            </th>
-                                            <th>
-                                                {{ $karyawan->foto }}
-                                            </th>
+                                            <tr>
+                                                <th>
+                                                    {{ $karyawan->nik }}
+                                                </th>
+                                                <th>
+                                                    {{ $karyawan->nama }}
+                                                </th>
+                                                <th>
+                                                    @if ($karyawan->jabatan == null)
+                                                        -
+                                                    @else
+                                                        {{ $karyawan->jabatan->nama }}
+                                                    @endif
+                                                </th>
+                                                <th>
+                                                    {{ $karyawan->tlpn }}
+                                                </th>
+                                                <th>
+                                                    {{ $karyawan->email }}
+                                                </th>
+                                                <th>
+                                                    {{ $karyawan->alamat }}
+                                                </th>
+                                                <th>
+                                                    {{ $karyawan->username }}
+                                                </th>
+                                                <th>
+                                                    {{ $karyawan->foto }}
+                                                </th>
+                                            </tr>
                                         @endforeach
                                     @elseif ((request()->is('admin/listjob')) || (request()->is('main/carijob')))
                                         Nama
@@ -208,13 +214,13 @@
                             @if (request()->is('admin/karyawan') || request()->is('main/carikaryawan'))
                                 {{ $kry->render('pagination::bootstrap-4') }}
                             @elseif ((request()->is('admin/listjob')) || (request()->is('main/carijob')))
-                                
+
                             @elseif ((request()->is('admin/job')) || (request()->is('main/cariblog')))
-                                
+
                             @elseif ((request()->is('admin/jabatan')) ||(request()->is('main/carilayanan')))
-                                
+
                             @elseif ((request()->is('admin/blog')))
-                                
+
                             @endif
                         </div>
                     </div>
