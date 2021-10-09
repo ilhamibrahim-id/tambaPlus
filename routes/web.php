@@ -32,8 +32,15 @@ Route::middleware(['auth','cekrole:karyawan'])->prefix('karyawan')->group(functi
     Route::get('');
 });
 
-Route::middleware(['auth','cekrole:admin'])->prefix('karyawan')->group(function(){
+Route::middleware(['auth','cekrole:admin'])->prefix('admin')->group(function(){
     Route::get('dashboard', [AdminController::class, 'dashboard'])->name('main.dashboard');
+    Route::get('karyawan', [AdminController::class, 'karyawan'])->name('karyawan');
+    Route::get('listjob', [AdminController::class, 'listjob'])->name('listjob');
+    Route::get('job', [AdminController::class, 'job'])->name('job');
+    Route::get('jabatan', [AdminController::class, 'jabatan'])->name('jabatan');
+    Route::get('blog', [AdminController::class, 'blog'])->name('blog');
+    Route::get('layanan', [AdminController::class, 'layanan'])->name('layanan');
+    Route::get('admin', [AdminController::class, 'dashboard'])->name('dashboard');
 });
 
 Route::get('/join', function () {
