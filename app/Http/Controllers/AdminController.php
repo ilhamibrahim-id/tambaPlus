@@ -27,6 +27,7 @@ class AdminController extends Controller
     {
         $data = Admin::where('username', '=', auth()->user()->username)->first();
         $kry = Karyawan::with('jabatan')->paginate(10);
+        //return $kry;
         return view('inti.main.table', compact('data','kry'));
     }
 
