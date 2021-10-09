@@ -35,6 +35,13 @@ class AdminController extends Controller
         return view('inti.main.table', compact('data', 'kry'));
     }
 
+    public function detailkaryawan($id)
+    {
+        $data = Admin::where('username', '=', auth()->user()->username)->first();
+        $kry = Karyawan::with('jabatan')->find($id);
+        return view('inti.main.detail_karyawan', compact('data', 'kry'));
+    }
+
     public function tambahkaryawan()
     {
         $data = Admin::where('username', '=', auth()->user()->username)->first();

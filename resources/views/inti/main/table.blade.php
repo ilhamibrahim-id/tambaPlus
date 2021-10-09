@@ -80,11 +80,7 @@
                                         <th>NIK</th>
                                         <th>Nama</th>
                                         <th>jabatan</th>
-                                        <th>No.Telpn</th>
-                                        <th>Email</th>
-                                        <th>Alamat</th>
                                         <th>Username</th>
-                                        <th>Foto</th>
                                         <th>Action</th>
                                     @elseif ((request()->is('admin/listjob')) || (request()->is('admin/listjob/cari')))
                                         <th>Nama</th>
@@ -121,6 +117,7 @@
                                 </thead>
                                 {{-- BADAN TABEL --}}
                                 <tbody>
+                                    {{-- TABEL KARYAWAN --}}
                                     @if (request()->is('admin/karyawan') || request()->is('admin/karyawan/cari'))
                                         @foreach ($kry as $karyawan)
                                             <tr>
@@ -138,23 +135,7 @@
                                                     @endif
                                                 </th>
                                                 <th>
-                                                    {{ $karyawan->tlpn }}
-                                                </th>
-                                                <th>
-                                                    {{ $karyawan->email }}
-                                                </th>
-                                                <th>
-                                                    {{ $karyawan->alamat }}
-                                                </th>
-                                                <th>
                                                     {{ $karyawan->username }}
-                                                </th>
-                                                <th>
-                                                    @if ($karyawan->foto == null)
-                                                        -
-                                                    @else
-                                                        {{ $karyawan->foto }}
-                                                    @endif
                                                 </th>
                                                 <th>
                                                     <button type="submit"
@@ -162,11 +143,16 @@
                                                         onclick="location.href='/admin/karyawan/edit/{{ $karyawan->id }}';">Edit
                                                         Data</button>
                                                     <button type="submit"
+                                                        class="btn form-control btn-primary rounded submit px-3"
+                                                        onclick="location.href='/admin/karyawan/detail/{{ $karyawan->id }}';">Detail
+                                                        Data</button>
+                                                    <button type="submit"
                                                         class="btn form-control btn-danger rounded submit px-3"
                                                         onclick="location.href='/admin/karyawan/hapus/{{ $karyawan->id }}';">Hapus</button>
                                                 </th>
                                             </tr>
                                         @endforeach
+                                    {{-- TABEL LIST JOB --}}
                                     @elseif ((request()->is('admin/listjob')) || (request()->is('admin/listjob/cari')))
                                         @foreach ($lj as $list)
                                             <tr>
@@ -194,6 +180,7 @@
                                                 </th>
                                             </tr>
                                         @endforeach
+                                    {{-- TABEL JOB --}}
                                     @elseif ((request()->is('admin/job')) || (request()->is('admin/job/cari')))
                                         @foreach ($job as $jb)
                                             <tr>
@@ -232,6 +219,7 @@
                                                 </th>
                                             </tr>
                                         @endforeach
+                                    {{-- TABEL JABATAN --}}
                                     @elseif ((request()->is('admin/jabatan')) ||(request()->is('admin/jabatan/cari')))
                                         @foreach ($jabatan as $jbt)
                                             <tr>
@@ -252,6 +240,7 @@
                                                 </th>
                                             </tr>
                                         @endforeach
+                                    {{-- TABEL BLOG --}}
                                     @elseif ((request()->is('admin/blog')) ||(request()->is('admin/blog/cari')))
                                         @foreach ($blog as $bg)
                                             <tr>
@@ -275,52 +264,54 @@
                                                 </th>
                                             </tr>
                                         @endforeach
+                                    {{-- TABEL LAYANAN --}}
                                     @elseif ((request()->is('admin/layanan')) ||(request()->is('admin/layanan/cari')))
-                                    @foreach ($lyn as $layanan)
-                                        <tr>
-                                            <th>
-                                                {{ $layanan->nama }}
-                                            </th>
-                                            <th>
-                                                {{ $layanan->deskripsi }}
-                                            </th>
-                                            <th>
-                                                {{ $layanan->harga }}
-                                            </th>
-                                            <th>
-                                                <button type="submit"
-                                                    class="btn form-control btn-primary rounded submit px-3"
-                                                    onclick="location.href='/admin/layanan/edit/{{ $layanan->id }}';">Edit
-                                                    Data</button>
-                                                <button type="submit"
-                                                    class="btn form-control btn-danger rounded submit px-3"
-                                                    onclick="location.href='/admin/layanan/hapus/{{ $layanan->id }}';">Hapus</button>
-                                            </th>
-                                        </tr>
-                                    @endforeach
+                                        @foreach ($lyn as $layanan)
+                                            <tr>
+                                                <th>
+                                                    {{ $layanan->nama }}
+                                                </th>
+                                                <th>
+                                                    {{ $layanan->deskripsi }}
+                                                </th>
+                                                <th>
+                                                    {{ $layanan->harga }}
+                                                </th>
+                                                <th>
+                                                    <button type="submit"
+                                                        class="btn form-control btn-primary rounded submit px-3"
+                                                        onclick="location.href='/admin/layanan/edit/{{ $layanan->id }}';">Edit
+                                                        Data</button>
+                                                    <button type="submit"
+                                                        class="btn form-control btn-danger rounded submit px-3"
+                                                        onclick="location.href='/admin/layanan/hapus/{{ $layanan->id }}';">Hapus</button>
+                                                </th>
+                                            </tr>
+                                        @endforeach
+                                    {{-- TABEL ADMIN --}}
                                     @elseif ((request()->is('admin/admin')) ||(request()->is('admin/admin/cari')))
-                                    @foreach ($admin as $adm)
-                                        <tr>
-                                            <th>
-                                                {{ $adm->username }}
-                                            </th>
-                                            <th>
-                                                {{ $adm->nama }}
-                                            </th>
-                                            <th>
-                                                {{ $adm->jabatan }}
-                                            </th>
-                                            <th>
-                                                <button type="submit"
-                                                    class="btn form-control btn-primary rounded submit px-3"
-                                                    onclick="location.href='/admin/admin/edit/{{ $adm->id }}';">Edit
-                                                    Data</button>
-                                                <button type="submit"
-                                                    class="btn form-control btn-danger rounded submit px-3"
-                                                    onclick="location.href='/admin/admin/hapus/{{ $adm->id }}';">Hapus</button>
-                                            </th>
-                                        </tr>
-                                    @endforeach
+                                        @foreach ($admin as $adm)
+                                            <tr>
+                                                <th>
+                                                    {{ $adm->username }}
+                                                </th>
+                                                <th>
+                                                    {{ $adm->nama }}
+                                                </th>
+                                                <th>
+                                                    {{ $adm->jabatan }}
+                                                </th>
+                                                <th>
+                                                    <button type="submit"
+                                                        class="btn form-control btn-primary rounded submit px-3"
+                                                        onclick="location.href='/admin/admin/edit/{{ $adm->id }}';">Edit
+                                                        Data</button>
+                                                    <button type="submit"
+                                                        class="btn form-control btn-danger rounded submit px-3"
+                                                        onclick="location.href='/admin/admin/hapus/{{ $adm->id }}';">Hapus</button>
+                                                </th>
+                                            </tr>
+                                        @endforeach
                                     @endif
                                 </tbody>
                             </table>
