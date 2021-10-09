@@ -21,20 +21,20 @@
     <link href="{{ asset('assets/demo/demo.css') }}" rel="stylesheet" />
 </head>
 
-<body style="background-image: url('{{ url('images/polinema.png') }}');">
+<body>
     <div class="wrapper ">
         <div class="sidebar" data-color="white" data-active-color="danger">
             <div class="logo">
                 <center>
                     @if ($data->foto == null)
-                        <img src="{{ asset('assets/img/logo-small.png') }}" width="150px">
+                        <img src="{{ asset('assets/img/logo-small.png') }}" width="90px">
                     @else
-                        <img src="{{ asset('storage/' . $data->foto) }}" width="150px">
+                        <img src="{{ asset('storage/' . $data->foto) }}" width="90px">
                     @endif
                 </center>
                 <a href="/main/edituser" class="simple-text logo-normal">
-                    HI,{{ $data->nama }}<br /> Login By
-                    {{ auth()->user()->role }}
+                    <center>HI,{{ $data->nama }}<b><i> <br />Login Sebagai
+                    {{ auth()->user()->role }}</i></b></center>
                 </a>
             </div>
             <div class="sidebar-wrapper">
@@ -137,7 +137,7 @@
                                 <span class="navbar-toggler-bar bar3"></span>
                             </button>
                         </div>
-                        <a class="navbar-brand" href="javascript:;">Sistem Informasi Kayawan TambaPlus</a>
+                        <a class="navbar-brand" href="javascript:;">Sistem Informasi Karyawan TambaPlus</a>
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
                         aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
