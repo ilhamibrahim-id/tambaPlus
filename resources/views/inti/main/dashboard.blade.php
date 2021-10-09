@@ -26,8 +26,8 @@
             </div>
           </div>
         </div>
-      @include('inti.main.att')
     </div>
+    @include('inti.main.att')
 @include('inti.main.footer')
 @endsection
 
