@@ -105,6 +105,15 @@ Route::middleware(['auth','cekrole:admin'])->prefix('admin')->group(function(){
     Route::get('blog/cari', [AdminController::class, 'cariblog'])->name('cariblog');
     Route::get('layanan/cari', [AdminController::class, 'carilayanan'])->name('carilayanan');
     Route::get('admin/cari', [AdminController::class, 'cariadmin'])->name('cariadmin');
+
+    // ROUTE UNTUK DETAIL DATA
+    Route::get('karyawan/detail/{id}', [AdminController::class, 'detailkaryawan'])->name('detailkaryawan');
+    Route::get('jabatan/detail/{id}', [AdminController::class, 'detailjabatan'])->name('detailjabatan');
+    Route::get('admin/detail/{id}', [AdminController::class, 'detailadmin'])->name('detailadmin');
+
+    // ROUTE KHUSUS UNTUK MEMBERI JABATAN
+    Route::get('jabatan/edit/{id}', [AdminController::class, 'editjabatan'])->name('editjabatan');
+    Route::post('jabatan/update/{id}', [AdminController::class, 'updatejabatan'])->name('updatejabatan');
 });
 
 //////////////////////////

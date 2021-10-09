@@ -238,6 +238,96 @@ class AdminController extends Controller
         return view('inti.main.table', compact('data', 'jabatan'));
     }
 
+    public function detailjabatan($id)
+    {
+        $data = Admin::where('username', '=', auth()->user()->username)->first();
+        $jabatan = Jabatan::with('karyawan')->find($id);
+        return view('inti.main.detail_jabatan', compact('data', 'jabatan'));
+    }
+
+    public function editjabatan($id)
+    {
+        $data = Admin::where('username', '=', auth()->user()->username)->first();
+        $kry = Karyawan::with('jabatan')->where('jabatan_id', $id)->orWhere('jabatan_id', null)->paginate(10);
+        return view('inti.main.edit_jabatan_karyawan', compact('data', 'kry', 'id'));
+    }
+
+    public function updatejabatan(Request $request, $id)
+    {
+        $data = $request->all();
+        $karyawan = Karyawan::where('jabatan_id', '=', $id)->orWhere('jabatan_id', '=', null)->get();
+        $jabatan = Jabatan::where('id', $id)->first();
+        $admin = Admin::all();
+        //return $jabatan;
+        //return $data;
+        //return $id;
+        if (!$request->has('checkbox')) {
+            foreach ($karyawan as $kry) {
+                karyawan::where('id', '=', $kry->id)->update(['jabatan_id' => null]);
+                DB::table('jobselesai')->where('karyawan_id', '=', $kry->id)->delete();
+            }
+        } else {
+            $x = 0;
+            foreach ($karyawan as $kry) {
+                if ($data['checkbox'] == null) {
+                    if ($kry->jabatan_id == $id) {
+                        karyawan::where('id', '=', $kry->id)->update(['jabatan_id' => null]);
+                        $kryid = karyawan::select('id')->where('id', '=', $kry->id)->first();
+                        DB::table('jobselesai')->where('karyawan_id', '=', $kry->id)->delete();
+                        foreach ($admin as $adm) {
+                            if ($adm->nama == $kry->nama) {
+                                if ($adm->jabatan == 'Ketua Divisi Marketing' || $adm->jabatan == 'Ketua Divisi Keuangan' || $adm->jabatan == 'Ketua Divisi Kemitraan' || $adm->jabatan == 'Ketua Divisi TI') {
+                                    DB::table('users')->where('username', $adm->username)->delete();
+                                    DB::table('admin')->where('username', $adm->username)->delete();
+                                }
+                            }
+                        }
+                    }
+                }
+                foreach ($data['checkbox'] as $item => $value) {
+                    if ($kry->id != $data['checkbox'][$item]) {
+                        if ($kry->jabatan_id == $id) {
+                            karyawan::where('id', '=', $kry->id)->update(['jabatan_id' => null]);
+                            $kryid = karyawan::select('id')->where('id', '=', $kry->id)->first();
+                            DB::table('jobselesai')->where('karyawan_id', '=', $kryid->id)->delete();
+                            foreach ($admin as $adm) {
+                                if ($adm->nama == $kry->nama) {
+                                    if ($adm->jabatan == 'Ketua Divisi Marketing' || $adm->jabatan == 'Ketua Divisi Keuangan' || $adm->jabatan == 'Ketua Divisi Kemitraan' || $adm->jabatan == 'Ketua Divisi TI') {
+                                        DB::table('users')->where('username', $adm->username)->delete();
+                                        DB::table('admin')->where('username', $adm->username)->delete();
+                                    }
+                                }
+                            }
+                            break;
+                        }
+                    } else {
+                        if ($kry->jabatan_id == null) {
+                            karyawan::where('id', '=', $data['checkbox'][$item])->update(['jabatan_id' => $id]);
+                            if ($jabatan->nama == 'Ketua Divisi Marketing' || $jabatan->nama == 'Ketua Divisi Keuangan' || $jabatan->nama == 'Ketua Divisi Kemitraan' || $jabatan->nama == 'Ketua Divisi TI') {
+                                DB::table('users')->insert([
+                                    'username' => $kry->nik,
+                                    'password' => bcrypt('admin'),
+                                    'role' => 'admin',
+                                ]);
+                                DB::table('admin')->insert([
+                                    'username' => $kry->nik,
+                                    'password' => bcrypt('admin'),
+                                    'nama' => $kry->nama,
+                                    'jabatan' => $jabatan->nama
+                                ]);
+                            }
+                        }
+                        unset($data['checkbox'][$x]);
+                        // return $data['checkbox'];
+                        $x++;
+                        break;
+                    }
+                }
+            }
+        }
+        return redirect('admin/jabatan');
+    }
+
     ////////////////////////
     // FUNGSI UNTUK ADMIN //
     ////////////////////////

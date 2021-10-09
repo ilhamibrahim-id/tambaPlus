@@ -100,7 +100,10 @@
                                         <th>Status</th>
                                         <th>Action</th>
                                     @elseif ((request()->is('admin/jabatan')) ||(request()->is('admin/jabatan/cari')))
-                                        <th>Alamat</th>
+                                        <th>Nama Jabatan</th>
+                                        <th>Deskripsi</th>
+                                        <th>Gaji</th>
+                                        <th>Action</th>
                                     @elseif ((request()->is('admin/blog')) ||(request()->is('admin/blog/cari')))
                                         <th>Alamat</th>
                                     @elseif ((request()->is('admin/layanan')) ||(request()->is('admin/layanan/cari')))
@@ -223,7 +226,25 @@
                                             </tr>
                                         @endforeach
                                     @elseif ((request()->is('admin/jabatan')) ||(request()->is('admin/jabatan/cari')))
-                                        <th>Alamat</th>
+                                        @foreach ($jabatan as $jbt)
+                                            <tr>
+                                                <th>
+                                                    {{ $jbt->nama }}
+                                                </th>
+                                                <th>
+                                                    {{ $jbt->deskripsi }}
+                                                </th>
+                                                <th>
+                                                    {{ $jbt->gaji }}
+                                                </th>
+                                                <th>
+                                                    <button type="submit"
+                                                        class="btn form-control btn-primary rounded submit px-3"
+                                                        onclick="location.href='/admin/jabatan/detail/{{ $jbt->id }}';">Detail
+                                                        Data</button>
+                                                </th>
+                                            </tr>
+                                        @endforeach
                                     @elseif ((request()->is('admin/blog')) ||(request()->is('admin/blog/cari')))
                                         <th>Alamat</th>
                                     @elseif ((request()->is('admin/layanan')) ||(request()->is('admin/layanan/cari')))
@@ -239,7 +260,7 @@
                             @elseif ((request()->is('admin/listjob')) || (request()->is('admin/listjob/cari')))
                                 {{ $lj->render('pagination::bootstrap-4') }}
                             @elseif ((request()->is('admin/job')) || (request()->is('admin/job/cari')))
-
+                                {{ $jabatan->render('pagination::bootstrap-4') }}
                             @elseif ((request()->is('admin/jabatan')) ||(request()->is('admin/jabatan/cari')))
 
                             @elseif ((request()->is('admin/blog')) ||(request()->is('admin/blog/cari')))
