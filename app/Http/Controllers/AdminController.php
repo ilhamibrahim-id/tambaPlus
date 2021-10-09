@@ -267,6 +267,45 @@ class AdminController extends Controller
         return view('inti.main.table', compact('data', 'lyn'));
     }
 
+    public function tambahlayanan()
+    {
+        $data = Admin::where('username', '=', auth()->user()->username)->first();
+        return view('inti.main.tambah_layanan', compact('data'));
+    }
+
+    public function storelayanan(Request $request)
+    {
+        DB::table('layanan')->insert([
+            'nama' => $request->nama,
+            'deskripsi' => $request->deskripsi,
+            'harga' => $request->harga,
+        ]);
+        return redirect('admin/layanan');
+    }
+
+    public function hapuslayanan($id)
+    {
+        DB::table('layanan')->where('id', $id)->delete();
+        return back();
+    }
+
+    public function editlayanan($id)
+    {
+        $data = Admin::where('username', '=', auth()->user()->username)->first();
+        $kry = Layanan::where('id', $id)->first();;
+        return view('inti.main.edit_layanan', compact('data', 'kry'));
+    }
+
+    public function updatelayanan(Request $request)
+    {
+        DB::table('layanan')->where('id', $request->id)->update([
+            'nama' => $request->nama,
+            'deskripsi' => $request->deskripsi,
+            'harga' => $request->harga
+        ]);
+        return redirect('admin/layanan');
+    }
+
     //////////////////////////
     // FUNGSI UNTUK JABATAN //
     //////////////////////////
@@ -375,5 +414,26 @@ class AdminController extends Controller
         $data = Admin::where('username', '=', auth()->user()->username)->first();
         $admin = Admin::paginate(10);
         return view('inti.main.table', compact('data', 'admin'));
+    }
+
+    public function hapusadmin($id)
+    {
+        DB::table('admin')->where('id', $id)->delete();
+        return back();
+    }
+
+    public function editadmin($id)
+    {
+        $data = Admin::where('username', '=', auth()->user()->username)->first();
+        $kry = admin::where('id', $id)->first();;
+        return view('inti.main.edit_admin', compact('data', 'kry'));
+    }
+
+    public function updateadmin(Request $request)
+    {
+        DB::table('admin')->where('id', $request->id)->update([
+            'username' => $request->username,
+        ]);
+        return redirect('admin/admin');
     }
 }

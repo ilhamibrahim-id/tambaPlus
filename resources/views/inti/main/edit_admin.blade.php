@@ -5,7 +5,7 @@
             <div class="col-md-12">
                 <div class="card card-user">
                     <div class="card-header">
-                        <h5 class="card-title">Edit blog {{ $kry->judul}}</h5>
+                        <h5 class="card-title">Edit Admin {{ $kry->nama}}</h5>
                     </div>
                     <div class="card-body">
                         @if ($errors->any())
@@ -17,30 +17,14 @@
                                 </ul>
                             </div>
                         @endif
-                        <form action="/admin/blog/update" method="post">
+                        <form action="/admin/admin/update" method="post">
                             {{ csrf_field() }}
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label>Masukan Judul : </label>
-                                        <input type="text" name="judul" required="required" class="form-control" value="{{ $kry->judul }}">
+                                        <label>Masukan Username : </label>
+                                        <input type="text" name="username" required="required" class="form-control" value="{{ $kry->username }}">
                                         <input type="hidden" name="id" value="{{ $kry->id }}">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label>Masukan Isi : </label>
-                                        <input type="text" name="isi" required="required" class="form-control" value="{{ $kry->isi }}">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label>Masukan Gambar : </label>
-                                        <input type="text" name="gambar" required="required" class="form-control" value="{{ $kry->gambar }}">
                                     </div>
                                 </div>
                             </div>
@@ -51,7 +35,7 @@
                                 </div>
                             </div>
                         </form>
-                        <form action="{{ route('blog') }}" class="login-form">
+                        <form action="{{ route('admin') }}" class="login-form">
                             <button type="submit"
                                 class="btn form-control btn-danger rounded submit px-3">Kembali</button>
                         </form>

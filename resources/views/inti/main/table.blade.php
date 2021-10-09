@@ -67,8 +67,6 @@
                             onclick="location.href='/admin/blog/tambah';"
                         @elseif ((request()->is('admin/layanan')) ||(request()->is('admin/layanan/cari')))
                             onclick="location.href='/admin/layanan/tambah';"
-                        @elseif ((request()->is('admin/admin')) ||(request()->is('admin/admin/cari')))
-                            onclick="location.href='/admin/admin/tambah';"
                         @endif
                     ><i class="nc-icon nc-simple-add"> Tambah Data</i></button>
                     @endif
@@ -110,9 +108,15 @@
                                         <th>Gambar</th>
                                         <th>Action</th>
                                     @elseif ((request()->is('admin/layanan')) ||(request()->is('admin/layanan/cari')))
-                                        <th>Alamat</th>
+                                        <th>Nama Layanan</th>
+                                        <th>Deskripsi</th>
+                                        <th>Harga</th>
+                                        <th>Action</th>
                                     @elseif ((request()->is('admin/admin')) ||(request()->is('admin/admin/cari')))
-                                        <th>Alamat</th>
+                                        <th>Username</th>
+                                        <th>Nama</th>
+                                        <th>Jabatan</th>
+                                        <th>Action</th>
                                     @endif
                                 </thead>
                                 {{-- BADAN TABEL --}}
@@ -272,9 +276,51 @@
                                             </tr>
                                         @endforeach
                                     @elseif ((request()->is('admin/layanan')) ||(request()->is('admin/layanan/cari')))
-                                        <th>Alamat</th>
+                                    @foreach ($lyn as $layanan)
+                                        <tr>
+                                            <th>
+                                                {{ $layanan->nama }}
+                                            </th>
+                                            <th>
+                                                {{ $layanan->deskripsi }}
+                                            </th>
+                                            <th>
+                                                {{ $layanan->harga }}
+                                            </th>
+                                            <th>
+                                                <button type="submit"
+                                                    class="btn form-control btn-primary rounded submit px-3"
+                                                    onclick="location.href='/admin/layanan/edit/{{ $layanan->id }}';">Edit
+                                                    Data</button>
+                                                <button type="submit"
+                                                    class="btn form-control btn-danger rounded submit px-3"
+                                                    onclick="location.href='/admin/layanan/hapus/{{ $layanan->id }}';">Hapus</button>
+                                            </th>
+                                        </tr>
+                                    @endforeach
                                     @elseif ((request()->is('admin/admin')) ||(request()->is('admin/admin/cari')))
-                                        <th>Alamat</th>
+                                    @foreach ($admin as $adm)
+                                        <tr>
+                                            <th>
+                                                {{ $adm->username }}
+                                            </th>
+                                            <th>
+                                                {{ $adm->nama }}
+                                            </th>
+                                            <th>
+                                                {{ $adm->jabatan }}
+                                            </th>
+                                            <th>
+                                                <button type="submit"
+                                                    class="btn form-control btn-primary rounded submit px-3"
+                                                    onclick="location.href='/admin/admin/edit/{{ $adm->id }}';">Edit
+                                                    Data</button>
+                                                <button type="submit"
+                                                    class="btn form-control btn-danger rounded submit px-3"
+                                                    onclick="location.href='/admin/admin/hapus/{{ $adm->id }}';">Hapus</button>
+                                            </th>
+                                        </tr>
+                                    @endforeach
                                     @endif
                                 </tbody>
                             </table>
