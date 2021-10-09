@@ -19,7 +19,7 @@
                             <br />
                                 <img src="{{url('images/logo.png')}}">
                             <p class="text-center">Login : </p>
-                            <form action="{{ route('login') }}" method="POST" class="login-form">
+                            <form action="{{ route('loginproses') }}" method="POST" class="login-form">
                                 @csrf
                                 <div class="form-group">
                                     <div class="icon d-flex align-items-center justify-content-center"><span

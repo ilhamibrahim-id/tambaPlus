@@ -2,7 +2,7 @@
 @section('konten')
     <div class="content">
       <div class="row">
-        {{-- <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="col-lg-3 col-md-6 col-sm-6">
           <div class="card card-stats">
             <div class="card-body ">
               <div class="row">
@@ -13,7 +13,7 @@
                 </div>
                 <div class="col-7 col-md-8">
                   <div class="numbers">
-                    <p class="card-title">{{ $mhs }}</p>
+                    <p class="card-title">{{ $kry }}</p>
                   </div>
                 </div>
               </div>
@@ -25,10 +25,10 @@
               </div>
             </div>
           </div>
-        </div> --}}
-      @include('main.att')
+        </div>
+      @include('inti.main.att')
     </div>
-@include('main.footer')
+@include('inti.main.footer')
 @endsection
 
 

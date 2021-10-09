@@ -10,13 +10,13 @@ class LoginController extends Controller
 {
     public function index()
     {
-        $roles = explode('/', url()->current());
+        $roles = explode('/login', url()->current());
 
-        if(Auth::check()) {
-            if(end($roles) !== Auth::user()->roles)
-                return redirect()->route('inti.main.dashboard');
-                
-            return redirect()->route('inti.main.dashboard');
+        if (Auth::check()) {
+            if (end($roles) !== Auth::user()->roles)
+                return redirect()->route('main.dashboard');
+
+            return redirect()->route('main.dashboard');
         }
 
         return view('inti.login.login', ['roles' => end($roles)]);
@@ -26,12 +26,23 @@ class LoginController extends Controller
     {
         $credentials = $request->only('username', 'password');
 
-        if(Auth::attempt($credentials)) {
+        if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-
-            return redirect()->route('inti.main.dashboard');
+            if (auth()->user()->role == 'admin') {
+                return redirect()->route('main.dashboard');
+            } else {
+                return redirect()->route('karyawan.dashboard');
+            }
         }
 
         return back()->withErrors(['error' => 'Data Tidak Valid']);
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/');
     }
 }

@@ -21,5 +21,16 @@ class UserSeeder extends Seeder
         ];
 
         DB::table('users')->insert($user);
+
+        $user1 =[
+            [
+                'username' => 'admin',
+                'password' => bcrypt('admin'),
+                'nama' => 'admin',
+                'jabatan' => 'admin'
+            ],
+        ];
+
+        DB::table('admin')->insert($user1);
     }
 }

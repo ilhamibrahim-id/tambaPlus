@@ -78,7 +78,7 @@
           <li><a href="/servis">Service</a></li>
           <li><a href="/kontak">Contact</a></li>
           <li><a href="/blog">Blog</a></li>
-          <li><a class="btn btn-default btn-main" href="/join" role="button">Daftar Menjadi Mitra</a></li>
+          <li><a class="btn th-btn-border" href="/join" role="button">Daftar Menjadi Mitra</a></li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div>
