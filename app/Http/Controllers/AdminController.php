@@ -70,6 +70,37 @@ class AdminController extends Controller
         }
     }
 
+    public function hapuskaryawan($id)
+    {
+        $kry = Karyawan::select('username')->where('id', $id)->first();
+        DB::table('users')->where('username', $kry)->delete();
+        DB::table('karyawan')->where('id', $id)->delete();
+        return back();
+    }
+
+    public function editkaryawan($id)
+    {
+        $data = Admin::where('username', '=', auth()->user()->username)->first();
+        $kry = Karyawan::where('id', $id)->first();;
+        return view('inti.main.edit_karyawan', compact('data', 'kry'));
+    }
+
+    public function updatekaryawan(Request $request)
+    {
+        DB::table('karyawan')->where('id', $request->id)->update([
+            'nik' => $request->nik,
+            'nama' => $request->nama,
+            'tlpn' => $request->tlpn,
+            'email' => $request->email,
+            'alamat' => $request->alamat,
+            'username' => $request->username,
+        ]);
+        DB::table('users')->where('username', $request->username)->update([
+            'username' => $request->username,
+        ]);
+        return redirect('admin/karyawan');
+    }
+
     //////////////////////////
     // FUNGSI UNTUK LISTJOB //
     //////////////////////////

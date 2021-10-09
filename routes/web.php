@@ -11,7 +11,7 @@ use App\Models\Layanan;
 ////////////////////////
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('/');
 Route::get('/servis', [DashboardController::class, 'layanan']);
 Route::get('/kontak', function () {
     return view('kontak');
@@ -26,16 +26,14 @@ Route::get('/join', function () {
     return view('join');
 });
 
-///////////////////////////
-// ROUTE LOGIN / LOG OUT //
-///////////////////////////
+/////////////////
+// ROUTE LOGIN //
+/////////////////
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 
 Route::prefix('login/proses')->group(function() {
     Route::post('/', [LoginController::class, 'store'])->name('loginproses');
 });
-
-Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
 //////////////////////////
 // ROUTE UNTUK KARYAWAN //
@@ -76,11 +74,38 @@ Route::middleware(['auth','cekrole:admin'])->prefix('admin')->group(function(){
     Route::post('blog/store', [AdminController::class, 'storeblog'])->name('storeblog');
     Route::post('layanan/store', [AdminController::class, 'storelayanan'])->name('storelayanan');
     Route::post('admin/store', [AdminController::class, 'storeadmin'])->name('storeadmin');
+
+    // ROUTE UNTUK FORM EDIT DATA
+    Route::get('karyawan/edit/{id}', [AdminController::class, 'editkaryawan'])->name('editkaryawan');
+    Route::get('listjob/edit/{id}', [AdminController::class, 'editlistjob'])->name('editlistjob');
+    Route::get('job/edit/{id}', [AdminController::class, 'editjob'])->name('editjob');
+    Route::get('jabatan/edit/{id}', [AdminController::class, 'editjabatan'])->name('editjabatan');
+    Route::get('blog/edit/{id}', [AdminController::class, 'editblog'])->name('editblog');
+    Route::get('layanan/edit/{id}', [AdminController::class, 'editlayanan'])->name('editlayanan');
+    Route::get('admin/edit/{id}', [AdminController::class, 'editadmin'])->name('editadmin');
+
+    // ROUTE UNTUK UPDATE EDIT DATA
+    Route::post('karyawan/update', [AdminController::class, 'updatekaryawan'])->name('updatekaryawan');
+    Route::post('listjob/update', [AdminController::class, 'updatelistjob'])->name('updatelistjob');
+    Route::post('job/update', [AdminController::class, 'updatejob'])->name('updatejob');
+    Route::post('jabatan/update', [AdminController::class, 'updatejabatan'])->name('updatejabatan');
+    Route::post('blog/update', [AdminController::class, 'updateblog'])->name('updateblog');
+    Route::post('layanan/update', [AdminController::class, 'updatelayanan'])->name('updatelayanan');
+    Route::post('admin/update', [AdminController::class, 'updateadmin'])->name('updateadmin');
+
+    // ROUTE UNTUK HAPUS DATA
+    Route::get('karyawan/hapus/{id}', [AdminController::class, 'hapuskaryawan'])->name('hapuskaryawan');
+    Route::get('listjob/hapus/{id}', [AdminController::class, 'hapuslistjob'])->name('hapuslistjob');
+    Route::get('job/hapus/{id}', [AdminController::class, 'hapusjob'])->name('hapusjob');
+    Route::get('jabatan/hapus/{id}', [AdminController::class, 'hapusjabatan'])->name('hapusjabatan');
+    Route::get('blog/hapus/{id}', [AdminController::class, 'hapusblog'])->name('hapusblog');
+    Route::get('layanan/hapus/{id}', [AdminController::class, 'hapuslayanan'])->name('hapuslayanan');
+    Route::get('admin/hapus/{id}', [AdminController::class, 'hapusadmin'])->name('hapusadmin');
 });
 
 //////////////////////////
 // ROUTE UNTUK ALL ROLE //
 //////////////////////////
 Route::middleware(['auth','cekrole:karyawan,admin'])->prefix('karyawan')->group(function(){
-    Route::get('');
+    Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 });

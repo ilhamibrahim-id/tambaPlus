@@ -165,6 +165,11 @@
                                             Foto
                                         </th>
                                     @endif
+                                    @if (request()->is('admin/karyawan') || request()->is('main/carikaryawan'))
+                                        <th>
+                                            Action
+                                        </th>
+                                    @endif
                                 </thead>
                                 <tbody>
                                     @if (request()->is('admin/karyawan') || request()->is('main/carikaryawan'))
@@ -196,7 +201,20 @@
                                                     {{ $karyawan->username }}
                                                 </th>
                                                 <th>
-                                                    {{ $karyawan->foto }}
+                                                    @if ( $karyawan->foto == null)
+                                                        -
+                                                    @else
+                                                        {{ $karyawan->foto }}
+                                                    @endif
+                                                </th>
+                                                <th>
+                                                    <button type="submit"
+                                                        class="btn form-control btn-primary rounded submit px-3"
+                                                        onclick="location.href='/admin/karyawan/edit/{{ $karyawan->id }}';">Edit
+                                                        Data</button>
+                                                    <button type="submit"
+                                                        class="btn form-control btn-danger rounded submit px-3"
+                                                        onclick="location.href='/admin/karyawan/hapus/{{ $karyawan->id }}';">Hapus</button>
                                                 </th>
                                             </tr>
                                         @endforeach
