@@ -61,7 +61,6 @@ Route::middleware(['auth','cekrole:admin'])->prefix('admin')->group(function(){
     Route::get('karyawan/tambah', [AdminController::class, 'tambahkaryawan'])->name('tambahkaryawan');
     Route::get('listjob/tambah', [AdminController::class, 'tambahlistjob'])->name('tambahlistjob');
     Route::get('job/tambah', [AdminController::class, 'tambahjob'])->name('tambahjob');
-    Route::get('jabatan/tambah', [AdminController::class, 'tambahjabatan'])->name('tambahjabatan');
     Route::get('blog/tambah', [AdminController::class, 'tambahblog'])->name('tambahblog');
     Route::get('layanan/tambah', [AdminController::class, 'tambahlayanan'])->name('tambahlayanan');
     Route::get('admin/tambah', [AdminController::class, 'tambahadmin'])->name('tambahadmin');
@@ -70,7 +69,6 @@ Route::middleware(['auth','cekrole:admin'])->prefix('admin')->group(function(){
     Route::post('karyawan/store', [AdminController::class, 'storekaryawan'])->name('storekaryawan');
     Route::post('listjob/store', [AdminController::class, 'storelistjob'])->name('storelistjob');
     Route::post('job/store', [AdminController::class, 'storejob'])->name('storejob');
-    Route::post('jabatan/store', [AdminController::class, 'storejabatan'])->name('storejabatan');
     Route::post('blog/store', [AdminController::class, 'storeblog'])->name('storeblog');
     Route::post('layanan/store', [AdminController::class, 'storelayanan'])->name('storelayanan');
     Route::post('admin/store', [AdminController::class, 'storeadmin'])->name('storeadmin');
@@ -79,7 +77,6 @@ Route::middleware(['auth','cekrole:admin'])->prefix('admin')->group(function(){
     Route::get('karyawan/edit/{id}', [AdminController::class, 'editkaryawan'])->name('editkaryawan');
     Route::get('listjob/edit/{id}', [AdminController::class, 'editlistjob'])->name('editlistjob');
     Route::get('job/edit/{id}', [AdminController::class, 'editjob'])->name('editjob');
-    Route::get('jabatan/edit/{id}', [AdminController::class, 'editjabatan'])->name('editjabatan');
     Route::get('blog/edit/{id}', [AdminController::class, 'editblog'])->name('editblog');
     Route::get('layanan/edit/{id}', [AdminController::class, 'editlayanan'])->name('editlayanan');
     Route::get('admin/edit/{id}', [AdminController::class, 'editadmin'])->name('editadmin');
@@ -88,7 +85,6 @@ Route::middleware(['auth','cekrole:admin'])->prefix('admin')->group(function(){
     Route::post('karyawan/update', [AdminController::class, 'updatekaryawan'])->name('updatekaryawan');
     Route::post('listjob/update', [AdminController::class, 'updatelistjob'])->name('updatelistjob');
     Route::post('job/update', [AdminController::class, 'updatejob'])->name('updatejob');
-    Route::post('jabatan/update', [AdminController::class, 'updatejabatan'])->name('updatejabatan');
     Route::post('blog/update', [AdminController::class, 'updateblog'])->name('updateblog');
     Route::post('layanan/update', [AdminController::class, 'updatelayanan'])->name('updatelayanan');
     Route::post('admin/update', [AdminController::class, 'updateadmin'])->name('updateadmin');
@@ -97,10 +93,18 @@ Route::middleware(['auth','cekrole:admin'])->prefix('admin')->group(function(){
     Route::get('karyawan/hapus/{id}', [AdminController::class, 'hapuskaryawan'])->name('hapuskaryawan');
     Route::get('listjob/hapus/{id}', [AdminController::class, 'hapuslistjob'])->name('hapuslistjob');
     Route::get('job/hapus/{id}', [AdminController::class, 'hapusjob'])->name('hapusjob');
-    Route::get('jabatan/hapus/{id}', [AdminController::class, 'hapusjabatan'])->name('hapusjabatan');
     Route::get('blog/hapus/{id}', [AdminController::class, 'hapusblog'])->name('hapusblog');
     Route::get('layanan/hapus/{id}', [AdminController::class, 'hapuslayanan'])->name('hapuslayanan');
     Route::get('admin/hapus/{id}', [AdminController::class, 'hapusadmin'])->name('hapusadmin');
+
+    // ROUTE UNTUK CARI DATA
+    Route::get('karyawan/cari', [AdminController::class, 'carikaryawan'])->name('carikaryawan');
+    Route::get('listjob/cari', [AdminController::class, 'carilistjob'])->name('carilistjob');
+    Route::get('job/cari', [AdminController::class, 'carijob'])->name('carijob');
+    Route::get('jabatan/cari', [AdminController::class, 'carijabatan'])->name('carijabatan');
+    Route::get('blog/cari', [AdminController::class, 'cariblog'])->name('cariblog');
+    Route::get('layanan/cari', [AdminController::class, 'carilayanan'])->name('carilayanan');
+    Route::get('admin/cari', [AdminController::class, 'cariadmin'])->name('cariadmin');
 });
 
 //////////////////////////

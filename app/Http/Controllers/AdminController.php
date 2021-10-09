@@ -74,6 +74,7 @@ class AdminController extends Controller
     {
         $kry = Karyawan::select('username')->where('id', $id)->first();
         DB::table('users')->where('username', $kry)->delete();
+        DB::table('jobselesai')->where('karyawan_id', $id)->delete();
         DB::table('karyawan')->where('id', $id)->delete();
         return back();
     }
@@ -111,6 +112,46 @@ class AdminController extends Controller
         return view('inti.main.table', compact('data', 'lj'));
     }
 
+    public function tambahlistjob()
+    {
+        $data = Admin::where('username', '=', auth()->user()->username)->first();
+        return view('inti.main.tambah_listjob', compact('data'));
+    }
+
+    public function storelistjob(Request $request)
+    {
+        DB::table('listjob')->insert([
+            'nama' => $request->nama,
+            'deskripsi' => $request->deskripsi,
+            'file' => $request->file,
+        ]);
+        return redirect('admin/listjob');
+    }
+
+    public function hapuslistjob($id)
+    {
+        DB::table('jobselesai')->where('listjob_id', $id)->delete();
+        DB::table('listjob')->where('id', $id)->delete();
+        return back();
+    }
+
+    public function editlistjob($id)
+    {
+        $data = Admin::where('username', '=', auth()->user()->username)->first();
+        $kry = listjob::where('id', $id)->first();;
+        return view('inti.main.edit_listjob', compact('data', 'kry'));
+    }
+
+    public function updatelistjob(Request $request)
+    {
+        DB::table('listjob')->where('id', $request->id)->update([
+            'nama' => $request->nama,
+            'deskripsi' => $request->deskripsi,
+            'file' => $request->file,
+        ]);
+        return redirect('admin/listjob');
+    }
+
     /////////////////////////////////////////////
     // FUNGSI UNTUK JOB / JOBSELESAI / LAPORAN //
     /////////////////////////////////////////////
@@ -118,7 +159,53 @@ class AdminController extends Controller
     {
         $data = Admin::where('username', '=', auth()->user()->username)->first();
         $job = Jobselesai::paginate(10);
-        return view('inti.main.table', compact('data', 'job'));
+        $lj = Listjob::all();
+        $kry = Karyawan::all();
+        return view('inti.main.table', compact('data', 'job', 'lj', 'kry'));
+    }
+
+    public function tambahjob()
+    {
+        $data = Admin::where('username', '=', auth()->user()->username)->first();
+        $lj = Listjob::all();
+        $kry = Karyawan::all();
+        return view('inti.main.tambah_job', compact('data', 'lj', 'kry'));
+    }
+
+    public function storejob(Request $request)
+    {
+        DB::table('jobselesai')->insert([
+            'listjob_id' => $request->lj,
+            'karyawan_id' => $request->kry,
+            'bukti' => null,
+            'status' => 'Belum Selesai',
+        ]);
+        return redirect('admin/job');
+    }
+
+    public function hapusjob($id)
+    {
+        DB::table('jobselesai')->where('id', $id)->delete();
+        return back();
+    }
+
+    public function editjob($id)
+    {
+        $data = Admin::where('username', '=', auth()->user()->username)->first();
+        $job = Jobselesai::where('id', $id)->first();;
+        $lj = Listjob::all();
+        $kry = Karyawan::all();
+        return view('inti.main.edit_job', compact('data', 'job', 'lj', 'kry'));
+    }
+
+    public function updatejob(Request $request)
+    {
+        DB::table('jobselesai')->where('id', $request->id)->update([
+            'listjob_id' => $request->lj,
+            'karyawan_id' => $request->kry,
+            'status' => $request->hasil,
+        ]);
+        return redirect('admin/job');
     }
 
     ///////////////////////

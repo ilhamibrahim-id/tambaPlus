@@ -4,175 +4,114 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
+                    {{-- JUDUL HALAMAN --}}
                     <div class="card-header">
                         <h4 class="card-title">
-                            @if (request()->is('admin/karyawan') || request()->is('main/carikaryawan'))
+                            @if (request()->is('admin/karyawan') || request()->is('admin/karyawan/cari'))
                                 Data Karyawan
-                            @elseif ((request()->is('admin/listjob')) || (request()->is('main/carijob')))
+                            @elseif ((request()->is('admin/listjob')) || (request()->is('admin/listjob/cari')))
                                 Data List Job
-                            @elseif ((request()->is('admin/job')) || (request()->is('main/cariblog')))
+                            @elseif ((request()->is('admin/job')) || (request()->is('admin/job/cari')))
                                 Data Job
-                            @elseif ((request()->is('admin/jabatan')) ||(request()->is('main/carilayanan')))
+                            @elseif ((request()->is('admin/jabatan')) ||(request()->is('admin/jabatan/cari')))
                                 Data Jabatan
-                            @elseif ((request()->is('admin/blog')))
+                            @elseif ((request()->is('admin/blog')) ||(request()->is('admin/blog/cari')))
                                 Data Blog
+                            @elseif ((request()->is('admin/layanan')) ||(request()->is('admin/layanan/cari')))
+                                Data Layanan
+                            @elseif ((request()->is('admin/admin')) ||(request()->is('admin/admin/cari')))
+                                Data Admin
                             @endif
                         </h4>
                     </div>
-                    @if (request()->is('admin/karyawan') || request()->is('main/carikaryawan'))
-                        <form method="GET" action="{{ url('/main/carikaryawan') }}">
-                            @csrf
-                            <div class="input-group rounded">
-                                <input type="text" class="form-control rounded" placeholder="Cari Data Karyawan .."
-                                    value="{{ old('keyword') }}" aria-label="Search" aria-describedby="search-addon"
-                                    name="keyword" />
-                                <button type="submit">
-                                    <span class="input-group-text border-0" id="search-addon">
-                                        <i class="nc-icon nc-zoom-split"></i>
-                                    </span>
-                                </button>
-                            </div>
-                        </form>
-                    @elseif ((request()->is('admin/listjob')) || (request()->is('main/carijob')))
-                        <form method="GET" action="{{ url('/main/carijob') }}">
-                            @csrf
-                            <div class="input-group rounded">
-                                <input type="text" class="form-control rounded" placeholder="Cari Data Mahasiswa .."
-                                    value="{{ old('keyword') }}" aria-label="Search" aria-describedby="search-addon"
-                                    name="keyword" />
-                                <button type="submit">
-                                    <span class="input-group-text border-0" id="search-addon">
-                                        <i class="nc-icon nc-zoom-split"></i>
-                                    </span>
-                                </button>
-                            </div>
-                        </form>
-                    @elseif ((request()->is('admin/jabatan')) || (request()->is('main/carilayanan')))
-                        <form method="GET" action="{{ url('main/carilayanan') }}">
-                            <div class="input-group rounded">
-                                <input type="text" class="form-control rounded" placeholder="Cari Data Dosen .."
-                                    value="{{ old('keyword') }}" aria-label="Search" aria-describedby="search-addon"
-                                    name="keyword" />
-                                <button type="submit">
-                                    <span class="input-group-text border-0" id="search-addon">
-                                        <i class="nc-icon nc-zoom-split"></i>
-                                    </span>
-                                </button>
-                            </div>
-                        </form>
-                    @elseif ((request()->is('admin/job')) || (request()->is('main/cariblog')))
-                        <form method="GET" action="{{ url('main/cariblog') }}">
-                            <div class="input-group rounded">
-                                <input type="text" class="form-control rounded" placeholder="Cari Data Mata Kuliah .."
-                                    value="{{ old('keyword') }}" aria-label="Search" aria-describedby="search-addon"
-                                    name="keyword" />
-                                <button type="submit">
-                                    <span class="input-group-text border-0" id="search-addon">
-                                        <i class="nc-icon nc-zoom-split"></i>
-                                    </span>
-                                </button>
-                            </div>
-                        </form>
-                    @endif
-                    @if (!request()->is('main/blog'))
-                        <button class="btn" data-toggle="modal" data-target="#form" @if (request()->is('admin/listjob') || request()->is('main/carijob'))
-                            onclick="location.href='/main/job/tambah';"
-                        @elseif ((request()->is('admin/job')) || (request()->is('main/cariblog')))
-                            onclick="location.href='/main/blog/tambah';"
-                        @elseif ((request()->is('admin/jabatan')) ||(request()->is('main/carilayanan')))
-                            onclick="location.href='/main/layanan/tambah';"
-                        @elseif ((request()->is('admin/karyawan')) || (request()->is('main/carikaryawan')))
+                    {{-- CARI DATA --}}
+                    <form method="GET" 
+                        @if (request()->is('admin/karyawan') || request()->is('admin/karyawan/cari'))
+                            action="{{ url('/admin/karyawan/cari') }}"
+                        @elseif ((request()->is('admin/listjob')) || (request()->is('admin/listjob/cari')))
+                            action="{{ url('/admin/karyawan/cari') }}"
+                        @elseif ((request()->is('admin/job')) || (request()->is('admin/job/cari')))
+                            action="{{ url('/admin/karyawan/cari') }}"
+                        @elseif ((request()->is('admin/jabatan')) ||(request()->is('admin/jabatan/cari')))
+                            action="{{ url('/admin/karyawan/cari') }}"
+                        @elseif ((request()->is('admin/blog')) ||(request()->is('admin/blog/cari')))
+                            action="{{ url('/admin/karyawan/cari') }}"
+                        @elseif ((request()->is('admin/layanan')) ||(request()->is('admin/layanan/cari')))
+                            action="{{ url('/admin/karyawan/cari') }}"
+                        @elseif ((request()->is('admin/admin')) ||(request()->is('admin/admin/cari')))
+                            action="{{ url('/admin/karyawan/cari') }}"
+                        @endif
+                        >
+                        @csrf
+                        <div class="input-group rounded">
+                            <input type="text" class="form-control rounded" placeholder="Cari Data..."
+                                value="{{ old('keyword') }}" aria-label="Search" aria-describedby="search-addon"
+                                name="keyword" />
+                            <button type="submit">
+                                <span class="input-group-text border-0" id="search-addon">
+                                    <i class="nc-icon nc-zoom-split"></i>
+                                </span>
+                            </button>
+                        </div>
+                    </form>
+                    {{-- TAMBAH DATA --}}
+                    @if (!request()->is('admin/jabatan'))
+                    <button class="btn" data-toggle="modal" data-target="#form"
+                        @if ((request()->is('admin/karyawan')) || (request()->is('admin/karyawan/cari')))
                             onclick="location.href='/admin/karyawan/tambah';"
-                            =
-                    @endif>
-                    <i class="nc-icon nc-simple-add"> Tambah Data</i></button>
+                        @elseif (request()->is('admin/listjob') || request()->is('admin/listjob/cari'))
+                            onclick="location.href='/admin/listjob/tambah';"
+                        @elseif ((request()->is('admin/job')) || (request()->is('admin/job/cari')))
+                            onclick="location.href='/admin/job/tambah';"
+                        @elseif ((request()->is('admin/blog')) ||(request()->is('admin/blog/cari')))
+                            onclick="location.href='/admin/blog/tambah';"
+                        @elseif ((request()->is('admin/layanan')) ||(request()->is('admin/layanan/cari')))
+                            onclick="location.href='/admin/layanan/tambah';"
+                        @elseif ((request()->is('admin/admin')) ||(request()->is('admin/admin/cari')))
+                            onclick="location.href='/admin/admin/tambah';"
+                        @endif
+                    ><i class="nc-icon nc-simple-add"> Tambah Data</i></button>
                     @endif
+                    {{-- KONTEN --}}
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table">
+                                {{-- KEPALA TABEL --}}
                                 <thead class=" text-primary">
-                                    <th>
-                                        @if (request()->is('admin/karyawan') || request()->is('main/carikaryawan'))
-                                            Nik
-                                        @elseif ((request()->is('admin/listjob')) || (request()->is('main/carijob')))
-                                            Nama
-                                        @elseif ((request()->is('admin/job')) || (request()->is('main/cariblog')))
-                                            Judul
-                                        @elseif ((request()->is('admin/jabatan')) ||(request()->is('main/carilayanan')))
-                                            Nama Layanan
-                                        @elseif ((request()->is('admin/blog')))
-                                            Nama Job
-                                        @endif
-                                    </th>
-                                    <th>
-                                        @if (request()->is('admin/karyawan') || request()->is('main/carikaryawan'))
-                                            Nama
-                                        @elseif ((request()->is('admin/listjob')) || (request()->is('main/carijob')))
-                                            Deskripsi
-                                        @elseif ((request()->is('admin/job')) || (request()->is('main/cariblog')))
-                                            Isi
-                                        @elseif ((request()->is('admin/jabatan')) ||(request()->is('main/carilayanan')))
-                                            Deskripsi
-                                        @elseif ((request()->is('admin/blog')))
-                                            Nama Karyawan
-                                        @endif
-                                    </th>
-                                    <th>
-                                        @if (request()->is('admin/karyawan') || request()->is('main/carikaryawan'))
-                                            Jabatan
-                                        @elseif ((request()->is('admin/listjob')) || (request()->is('main/carijob')))
-                                            File Pendukung
-                                        @elseif ((request()->is('admin/job')) || (request()->is('main/cariblog')))
-                                            Gambar
-                                        @elseif ((request()->is('admin/jabatan')) ||(request()->is('main/carilayanan')))
-                                            Harga
-                                        @elseif ((request()->is('admin/blog')))
-                                            Bukti Job
-                                        @endif
-                                    </th>
-                                    <th>
-                                        @if (request()->is('admin/karyawan') || request()->is('main/carikaryawan'))
-                                            No.Telp
-                                        @elseif ((request()->is('admin/listjob')) || (request()->is('main/carijob')))
-                                            Action
-                                        @elseif ((request()->is('admin/job')) || (request()->is('main/cariblog')))
-                                            Action
-                                        @elseif ((request()->is('admin/jabatan')) ||(request()->is('main/carilayanan')))
-                                            Action
-                                        @elseif ((request()->is('admin/blog')))
-                                            Status
-                                        @endif
-                                    </th>
-                                    <th>
-                                        @if (request()->is('admin/karyawan') || request()->is('main/carikaryawan'))
-                                            Email
-                                        @elseif ((request()->is('admin/blog')))
-                                            Action
-                                        @endif
-                                    </th>
-                                    @if (request()->is('admin/karyawan') || request()->is('main/carikaryawan'))
-                                        <th>
-                                            Alamat
-                                        </th>
-                                    @endif
-                                    @if (request()->is('admin/karyawan') || request()->is('main/carikaryawan'))
-                                        <th>
-                                            Username
-                                        </th>
-                                    @endif
-                                    @if (request()->is('admin/karyawan') || request()->is('main/carikaryawan'))
-                                        <th>
-                                            Foto
-                                        </th>
-                                    @endif
-                                    @if (request()->is('admin/karyawan') || request()->is('main/carikaryawan'))
-                                        <th>
-                                            Action
-                                        </th>
+                                    @if (request()->is('admin/karyawan') || request()->is('admin/karyawan/cari'))
+                                        <th>NIK</th>
+                                        <th>Nama</th>
+                                        <th>jabatan</th>
+                                        <th>No.Telpn</th>
+                                        <th>Email</th>
+                                        <th>Alamat</th>
+                                        <th>Username</th>
+                                        <th>Foto</th>
+                                        <th>Action</th>
+                                    @elseif ((request()->is('admin/listjob')) || (request()->is('admin/listjob/cari')))
+                                        <th>Nama</th>
+                                        <th>Deskripsi</th>
+                                        <th>File Pendukung</th>
+                                        <th>Action</th>
+                                    @elseif ((request()->is('admin/job')) || (request()->is('admin/job/cari')))
+                                        <th>Nama Job</th>
+                                        <th>Nama Karyawan</th>
+                                        <th>Laporan</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    @elseif ((request()->is('admin/jabatan')) ||(request()->is('admin/jabatan/cari')))
+                                        <th>Alamat</th>
+                                    @elseif ((request()->is('admin/blog')) ||(request()->is('admin/blog/cari')))
+                                        <th>Alamat</th>
+                                    @elseif ((request()->is('admin/layanan')) ||(request()->is('admin/layanan/cari')))
+                                        <th>Alamat</th>
+                                    @elseif ((request()->is('admin/admin')) ||(request()->is('admin/admin/cari')))
+                                        <th>Alamat</th>
                                     @endif
                                 </thead>
+                                {{-- BADAN TABEL --}}
                                 <tbody>
-                                    @if (request()->is('admin/karyawan') || request()->is('main/carikaryawan'))
+                                    @if (request()->is('admin/karyawan') || request()->is('admin/karyawan/cari'))
                                         @foreach ($kry as $karyawan)
                                             <tr>
                                                 <th>
@@ -201,7 +140,7 @@
                                                     {{ $karyawan->username }}
                                                 </th>
                                                 <th>
-                                                    @if ( $karyawan->foto == null)
+                                                    @if ($karyawan->foto == null)
                                                         -
                                                     @else
                                                         {{ $karyawan->foto }}
@@ -218,27 +157,97 @@
                                                 </th>
                                             </tr>
                                         @endforeach
-                                    @elseif ((request()->is('admin/listjob')) || (request()->is('main/carijob')))
-                                        Nama
-                                    @elseif ((request()->is('admin/job')) || (request()->is('main/cariblog')))
-                                        Judul
-                                    @elseif ((request()->is('admin/jabatan')) ||(request()->is('main/carilayanan')))
-                                        Nama Layanan
-                                    @elseif ((request()->is('admin/blog')))
-                                        Nama Job
+                                    @elseif ((request()->is('admin/listjob')) || (request()->is('admin/listjob/cari')))
+                                        @foreach ($lj as $list)
+                                            <tr>
+                                                <th>
+                                                    {{ $list->nama }}
+                                                </th>
+                                                <th>
+                                                    {{ $list->deskripsi }}
+                                                </th>
+                                                <th>
+                                                    @if ($list->file == null)
+                                                        -
+                                                    @else
+                                                        {{ $list->file }}
+                                                    @endif
+                                                </th>
+                                                <th>
+                                                    <button type="submit"
+                                                        class="btn form-control btn-primary rounded submit px-3"
+                                                        onclick="location.href='/admin/listjob/edit/{{ $list->id }}';">Edit
+                                                        Data</button>
+                                                    <button type="submit"
+                                                        class="btn form-control btn-danger rounded submit px-3"
+                                                        onclick="location.href='/admin/listjob/hapus/{{ $list->id }}';">Hapus</button>
+                                                </th>
+                                            </tr>
+                                        @endforeach
+                                    @elseif ((request()->is('admin/job')) || (request()->is('admin/job/cari')))
+                                        @foreach ($job as $jb)
+                                            <tr>
+                                                <th>
+                                                    @foreach ($lj as $listjob)
+                                                        @if ($jb->listjob_id == $listjob->id)
+                                                            {{ $listjob->nama }}
+                                                        @endif
+                                                    @endforeach
+                                                </th>
+                                                <th>
+                                                    @foreach ($kry as $karyawan)
+                                                        @if ($jb->karyawan_id == $karyawan->id)
+                                                            {{ $karyawan->nama }}
+                                                        @endif
+                                                    @endforeach
+                                                </th>
+                                                <th>
+                                                    @if ($jb->bukti == null)
+                                                        -
+                                                    @else
+                                                        {{ $jb->bukti }}
+                                                    @endif
+                                                </th>
+                                                <th>
+                                                    {{ $jb->status }}
+                                                </th>
+                                                <th>
+                                                    <button type="submit"
+                                                        class="btn form-control btn-primary rounded submit px-3"
+                                                        onclick="location.href='/admin/job/edit/{{ $jb->id }}';">Edit
+                                                        Data</button>
+                                                    <button type="submit"
+                                                        class="btn form-control btn-danger rounded submit px-3"
+                                                        onclick="location.href='/admin/job/hapus/{{ $jb->id }}';">Hapus</button>
+                                                </th>
+                                            </tr>
+                                        @endforeach
+                                    @elseif ((request()->is('admin/jabatan')) ||(request()->is('admin/jabatan/cari')))
+                                        <th>Alamat</th>
+                                    @elseif ((request()->is('admin/blog')) ||(request()->is('admin/blog/cari')))
+                                        <th>Alamat</th>
+                                    @elseif ((request()->is('admin/layanan')) ||(request()->is('admin/layanan/cari')))
+                                        <th>Alamat</th>
+                                    @elseif ((request()->is('admin/admin')) ||(request()->is('admin/admin/cari')))
+                                        <th>Alamat</th>
                                     @endif
                                 </tbody>
                             </table>
-                            @if (request()->is('admin/karyawan') || request()->is('main/carikaryawan'))
+                            {{-- PAGINATION --}}
+                            @if (request()->is('admin/karyawan') || request()->is('admin/karyawan/cari'))
                                 {{ $kry->render('pagination::bootstrap-4') }}
-                            @elseif ((request()->is('admin/listjob')) || (request()->is('main/carijob')))
+                            @elseif ((request()->is('admin/listjob')) || (request()->is('admin/listjob/cari')))
+                                {{ $lj->render('pagination::bootstrap-4') }}
+                            @elseif ((request()->is('admin/job')) || (request()->is('admin/job/cari')))
 
-                            @elseif ((request()->is('admin/job')) || (request()->is('main/cariblog')))
+                            @elseif ((request()->is('admin/jabatan')) ||(request()->is('admin/jabatan/cari')))
 
-                            @elseif ((request()->is('admin/jabatan')) ||(request()->is('main/carilayanan')))
-
-                            @elseif ((request()->is('admin/blog')))
-
+                            @elseif ((request()->is('admin/blog')) ||(request()->is('admin/blog/cari')))
+                                        
+                            @elseif ((request()->is('admin/layanan')) ||(request()->is('admin/layanan/cari')))
+                                        
+                            @elseif ((request()->is('admin/admin')) ||(request()->is('admin/admin/cari')))
+                                        
                             @endif
                         </div>
                     </div>
