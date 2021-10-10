@@ -17,9 +17,7 @@ Route::get('/servis', [DashboardController::class, 'layanan']);
 Route::get('/kontak', function () {
     return view('kontak');
 });
-Route::get('/blog', function () {
-    return view('blog');
-});
+Route::get('/blog', [DashboardController::class, 'blog']);
 Route::get('/blog-single', function () {
     return view('blog-single');
 });

@@ -75,6 +75,10 @@
                                                 selected
                                                 @endif
                                                 >Selesai</option>
+                                            <option value="Koreksi" @if ($job->status == 'Koreksi')
+                                                selected
+                                                @endif
+                                                >Koreksi</option>
                                         </select>
                                     </div>
                                 </div>
