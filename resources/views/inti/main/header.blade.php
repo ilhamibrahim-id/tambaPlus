@@ -34,20 +34,21 @@
                 </center>
                 <a href="/main/edituser" class="simple-text logo-normal">
                     <center>HI,{{ $data->nama }}<b><i> <br />Login Sebagai
-                    {{ auth()->user()->role }}</i></b></center>
+                                {{ auth()->user()->role }}</i></b></center>
                 </a>
             </div>
             <div class="sidebar-wrapper">
                 <ul class="nav">
-                    <li class="{{ request()->is('admin/dashboard') ? 'active' : '' }}">
-                        <a href="/admin/dashboard">
-                            <i class="nc-icon nc-shop"></i>
-                            <p>Dashboard</p>
-                        </a>
-                    </li>
                     @if (auth()->user()->role == 'admin')
-                        <li
-                            class="{{ request()->is('admin/karyawan') ? 'active' : '' }} ">
+                        <li class="{{ request()->is('admin/dashboard') ? 'active' : '' }}">
+                            <a href="/admin/dashboard">
+                                <i class="nc-icon nc-shop"></i>
+                                <p>Dashboard</p>
+                            </a>
+                        </li>
+                    @endif
+                    @if (auth()->user()->role == 'admin')
+                        <li class="{{ request()->is('admin/karyawan') ? 'active' : '' }} ">
                             <a href="/admin/karyawan">
                                 <i class="nc-icon nc-circle-10"></i>
                                 <p> Karyawan </p>
@@ -63,8 +64,7 @@
                         </li>
                     @endif
                     @if (auth()->user()->role == 'admin')
-                        <li
-                            class="{{ request()->is('admin/job') ? 'active' : '' }}">
+                        <li class="{{ request()->is('admin/job') ? 'active' : '' }}">
                             <a href="/admin/job">
                                 <i class="nc-icon nc-ruler-pencil"></i>
                                 <p> Job </p>
@@ -72,8 +72,7 @@
                         </li>
                     @endif
                     @if (auth()->user()->role == 'admin')
-                        <li
-                            class="{{ request()->is('admin/jabatan') ? 'active' : '' }}">
+                        <li class="{{ request()->is('admin/jabatan') ? 'active' : '' }}">
                             <a href="/admin/jabatan">
                                 <i class="nc-icon nc-single-02"></i>
                                 <p> Jabatan </p>
@@ -81,8 +80,7 @@
                         </li>
                     @endif
                     @if (auth()->user()->role == 'admin')
-                        <li
-                            class="{{ request()->is('admin/blog') ? 'active' : '' }}">
+                        <li class="{{ request()->is('admin/blog') ? 'active' : '' }}">
                             <a href="/admin/blog">
                                 <i class="nc-icon nc-glasses-2"></i>
                                 <p> Blog </p>
@@ -90,8 +88,7 @@
                         </li>
                     @endif
                     @if (auth()->user()->role == 'admin')
-                        <li
-                            class="{{ request()->is('admin/layanan') ? 'active' : '' }}">
+                        <li class="{{ request()->is('admin/layanan') ? 'active' : '' }}">
                             <a href="/admin/layanan">
                                 <i class="nc-icon nc-laptop"></i>
                                 <p> Layanan </p>
@@ -99,27 +96,42 @@
                         </li>
                     @endif
                     @if (auth()->user()->role == 'admin')
-                        <li
-                            class="{{ request()->is('admin/admin') ? 'active' : '' }}">
+                        <li class="{{ request()->is('admin/admin') ? 'active' : '' }}">
                             <a href="/admin/admin">
                                 <i class="nc-icon nc-laptop"></i>
                                 <p> Admin </p>
                             </a>
                         </li>
                     @endif
-                    @if (auth()->user()->role == 'dosen')
-                        <li class="{{ request()->is('dosen/kelas') ? 'active' : '' }}">
-                            <a href="/dosen/kelas">
+                    @if (auth()->user()->role == 'karyawan')
+                        <li class="{{ request()->is('karyawan/dashboard') ? 'active' : '' }}">
+                            <a href="/karyawan/dashboard">
+                                <i class="nc-icon nc-shop"></i>
+                                <p>Dashboard</p>
+                            </a>
+                        </li>
+                    @endif
+                    @if (auth()->user()->role == 'karyawan')
+                        <li class="{{ request()->is('karyawan/listjob') ? 'active' : '' }}">
+                            <a href="/karyawan/listjob">
                                 <i class="nc-icon nc-bank"></i>
                                 <p> Job </p>
                             </a>
                         </li>
                     @endif
-                    @if (auth()->user()->role == 'dosen')
-                        <li class="{{ request()->is('dosen/nilai') ? 'active' : '' }}">
-                            <a href="/dosen/nilai">
+                    @if (auth()->user()->role == 'karyawan')
+                        <li class="{{ request()->is('karyawan/job') ? 'active' : '' }}">
+                            <a href="/karyawan/job">
                                 <i class="nc-icon nc-globe-2"></i>
                                 <p> Laporan </p>
+                            </a>
+                        </li>
+                    @endif
+                    @if (auth()->user()->role == 'karyawan')
+                        <li class="{{ request()->is('karyawan/jabatan') ? 'active' : '' }}">
+                            <a href="/karyawan/jabatan">
+                                <i class="nc-icon nc-globe-2"></i>
+                                <p> Jabatan </p>
                             </a>
                         </li>
                     @endif
@@ -158,7 +170,8 @@
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                                     <a class="dropdown-item" type="button" href="/main/edituser">Edit Profile</a>
-                                    <a class="dropdown-item" type="button" href="/main/gantipassword">Ganti Password</a>
+                                    <a class="dropdown-item" type="button" href="/main/gantipassword">Ganti
+                                        Password</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                   document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}

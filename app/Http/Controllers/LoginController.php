@@ -14,9 +14,17 @@ class LoginController extends Controller
 
         if (Auth::check()) {
             if (end($roles) !== Auth::user()->roles)
-                return redirect()->route('main.dashboard');
+                if (auth()->user()->role == 'admin') {
+                    return redirect()->route('main.dashboard');
+                } else {
+                    return redirect()->route('karyawan.dashboard');
+                }
 
-            return redirect()->route('main.dashboard');
+            if (auth()->user()->role == 'admin') {
+                return redirect()->route('main.dashboard');
+            } else {
+                return redirect()->route('karyawan.dashboard');
+            }
         }
 
         return view('inti.login.login', ['roles' => end($roles)]);

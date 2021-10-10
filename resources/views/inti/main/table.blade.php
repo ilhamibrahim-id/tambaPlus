@@ -25,21 +25,20 @@
                         </h4>
                     </div>
                     {{-- CARI DATA --}}
-                    <form method="GET" 
-                        @if (request()->is('admin/karyawan') || request()->is('admin/karyawan/cari'))
-                            action="{{ url('/admin/karyawan/cari') }}"
-                        @elseif ((request()->is('admin/listjob')) || (request()->is('admin/listjob/cari')))
-                            action="{{ url('/admin/karyawan/cari') }}"
-                        @elseif ((request()->is('admin/job')) || (request()->is('admin/job/cari')))
-                            action="{{ url('/admin/karyawan/cari') }}"
-                        @elseif ((request()->is('admin/jabatan')) ||(request()->is('admin/jabatan/cari')))
-                            action="{{ url('/admin/karyawan/cari') }}"
-                        @elseif ((request()->is('admin/blog')) ||(request()->is('admin/blog/cari')))
-                            action="{{ url('/admin/karyawan/cari') }}"
-                        @elseif ((request()->is('admin/layanan')) ||(request()->is('admin/layanan/cari')))
-                            action="{{ url('/admin/karyawan/cari') }}"
-                        @elseif ((request()->is('admin/admin')) ||(request()->is('admin/admin/cari')))
-                            action="{{ url('/admin/karyawan/cari') }}"
+                    <form method="GET" @if (request()->is('admin/karyawan') || request()->is('admin/karyawan/cari'))
+                        action="{{ url('/admin/karyawan/cari') }}"
+                    @elseif ((request()->is('admin/listjob')) || (request()->is('admin/listjob/cari')))
+                        action="{{ url('/admin/karyawan/cari') }}"
+                    @elseif ((request()->is('admin/job')) || (request()->is('admin/job/cari')))
+                        action="{{ url('/admin/karyawan/cari') }}"
+                    @elseif ((request()->is('admin/jabatan')) ||(request()->is('admin/jabatan/cari')))
+                        action="{{ url('/admin/karyawan/cari') }}"
+                    @elseif ((request()->is('admin/blog')) ||(request()->is('admin/blog/cari')))
+                        action="{{ url('/admin/karyawan/cari') }}"
+                    @elseif ((request()->is('admin/layanan')) ||(request()->is('admin/layanan/cari')))
+                        action="{{ url('/admin/karyawan/cari') }}"
+                    @elseif ((request()->is('admin/admin')) ||(request()->is('admin/admin/cari')))
+                        action="{{ url('/admin/karyawan/cari') }}"
                         @endif
                         >
                         @csrf
@@ -55,20 +54,26 @@
                         </div>
                     </form>
                     {{-- TAMBAH DATA --}}
-                    @if (!request()->is('admin/jabatan'))
-                    <button class="btn" data-toggle="modal" data-target="#form"
-                        @if ((request()->is('admin/karyawan')) || (request()->is('admin/karyawan/cari')))
-                            onclick="location.href='/admin/karyawan/tambah';"
-                        @elseif (request()->is('admin/listjob') || request()->is('admin/listjob/cari'))
-                            onclick="location.href='/admin/listjob/tambah';"
-                        @elseif ((request()->is('admin/job')) || (request()->is('admin/job/cari')))
-                            onclick="location.href='/admin/job/tambah';"
-                        @elseif ((request()->is('admin/blog')) ||(request()->is('admin/blog/cari')))
-                            onclick="location.href='/admin/blog/tambah';"
-                        @elseif ((request()->is('admin/layanan')) ||(request()->is('admin/layanan/cari')))
-                            onclick="location.href='/admin/layanan/tambah';"
-                        @endif
-                    ><i class="nc-icon nc-simple-add"> Tambah Data</i></button>
+                    @if (request()->is('admin/karyawan') || request()->is('admin/karyawan/cari'))
+                        <button class="btn" data-toggle="modal" data-target="#form"
+                            onclick="location.href='/admin/karyawan/tambah';"><i class="nc-icon nc-simple-add"> Tambah
+                                Data</i></button>
+                    @elseif (request()->is('admin/listjob') || request()->is('admin/listjob/cari'))
+                        <button class="btn" data-toggle="modal" data-target="#form"
+                            onclick="location.href='/admin/listjob/tambah';"><i class="nc-icon nc-simple-add"> Tambah
+                                Data</i></button>
+                    @elseif ((request()->is('admin/job')) || (request()->is('admin/job/cari')))
+                        <button class="btn" data-toggle="modal" data-target="#form"
+                            onclick="location.href='/admin/job/tambah';"><i class="nc-icon nc-simple-add"> Tambah
+                                Data</i></button>
+                    @elseif ((request()->is('admin/blog')) ||(request()->is('admin/blog/cari')))
+                        <button class="btn" data-toggle="modal" data-target="#form"
+                            onclick="location.href='/admin/blog/tambah';"><i class="nc-icon nc-simple-add"> Tambah
+                                Data</i></button>
+                    @elseif ((request()->is('admin/layanan')) ||(request()->is('admin/layanan/cari')))
+                        <button class="btn" data-toggle="modal" data-target="#form"
+                            onclick="location.href='/admin/layanan/tambah';"><i class="nc-icon nc-simple-add"> Tambah
+                                Data</i></button>
                     @endif
                     {{-- KONTEN --}}
                     <div class="card-body">
@@ -152,7 +157,7 @@
                                                 </th>
                                             </tr>
                                         @endforeach
-                                    {{-- TABEL LIST JOB --}}
+                                        {{-- TABEL LIST JOB --}}
                                     @elseif ((request()->is('admin/listjob')) || (request()->is('admin/listjob/cari')))
                                         @foreach ($lj as $list)
                                             <tr>
@@ -180,7 +185,7 @@
                                                 </th>
                                             </tr>
                                         @endforeach
-                                    {{-- TABEL JOB --}}
+                                        {{-- TABEL JOB --}}
                                     @elseif ((request()->is('admin/job')) || (request()->is('admin/job/cari')))
                                         @foreach ($job as $jb)
                                             <tr>
@@ -219,7 +224,7 @@
                                                 </th>
                                             </tr>
                                         @endforeach
-                                    {{-- TABEL JABATAN --}}
+                                        {{-- TABEL JABATAN --}}
                                     @elseif ((request()->is('admin/jabatan')) ||(request()->is('admin/jabatan/cari')))
                                         @foreach ($jabatan as $jbt)
                                             <tr>
@@ -240,7 +245,7 @@
                                                 </th>
                                             </tr>
                                         @endforeach
-                                    {{-- TABEL BLOG --}}
+                                        {{-- TABEL BLOG --}}
                                     @elseif ((request()->is('admin/blog')) ||(request()->is('admin/blog/cari')))
                                         @foreach ($blog as $bg)
                                             <tr>
@@ -264,7 +269,7 @@
                                                 </th>
                                             </tr>
                                         @endforeach
-                                    {{-- TABEL LAYANAN --}}
+                                        {{-- TABEL LAYANAN --}}
                                     @elseif ((request()->is('admin/layanan')) ||(request()->is('admin/layanan/cari')))
                                         @foreach ($lyn as $layanan)
                                             <tr>
@@ -288,7 +293,7 @@
                                                 </th>
                                             </tr>
                                         @endforeach
-                                    {{-- TABEL ADMIN --}}
+                                        {{-- TABEL ADMIN --}}
                                     @elseif ((request()->is('admin/admin')) ||(request()->is('admin/admin/cari')))
                                         @foreach ($admin as $adm)
                                             <tr>

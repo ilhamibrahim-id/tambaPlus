@@ -15,6 +15,6 @@ class Listjob extends Model
     ];
 
     public function karyawan(){
-        return $this->belongsToMany(Karyawan::class,'jobselesai','listjob_id','karyawan_id')->withPivot('status','bukti');
+        return $this->belongsToMany(Karyawan::class,'jobselesai','listjob_id','karyawan_id')->withPivot('status','bukti','id');
     }
 }

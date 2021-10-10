@@ -9,13 +9,21 @@
                             <thead class=" text-primary">
                                 <thead>
                                     <tr>
-                                        <th>List Job</th>
-                                        <th>Deskripsi</th>
+                                        <th>Nama Job</th>
                                         <th>Status</th>
                                     </tr>
                                 </thead>
                             <tbody>
-                               
+                                @foreach ($status->listjob as $sts)
+                                    <tr>
+                                        <th>
+                                            {{ $sts->nama }}
+                                        </th>
+                                        <th>
+                                            {{ $sts->pivot->status }}
+                                        </th>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                         <hr />

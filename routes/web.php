@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\KaryawanController;
 use App\Models\Layanan;
 
 ////////////////////////
@@ -39,7 +40,19 @@ Route::prefix('login/proses')->group(function() {
 // ROUTE UNTUK KARYAWAN //
 //////////////////////////
 Route::middleware(['auth','cekrole:karyawan'])->prefix('karyawan')->group(function(){
-    Route::get('');
+    Route::get('dashboard', [KaryawanController::class, 'dashboard'])->name('karyawan.dashboard');
+
+    // ROUTE UNTUK TABEL AWAL
+    Route::get('listjob', [KaryawanController::class, 'listjob'])->name('listjobkry');
+    Route::get('job', [KaryawanController::class, 'job'])->name('jobkry');
+    Route::get('jabatan', [KaryawanController::class, 'jabatan'])->name('jabatankry');
+
+    // ROUTE UNTUK DETAIL DATA
+    Route::get('listjob/detail/{id}', [KaryawanController::class, 'detaillistjob'])->name('detaillistjobkry');
+    Route::get('job/detail/{id}', [KaryawanController::class, 'detailjob'])->name('detailjobkry');
+
+    // ROUTE UNTUK UPLOAD LAPORAN
+    Route::post('job/upload', [KaryawanController::class, 'uploadjob'])->name('uploadjobkry');
 });
 
 ///////////////////////
@@ -109,7 +122,6 @@ Route::middleware(['auth','cekrole:admin'])->prefix('admin')->group(function(){
     // ROUTE UNTUK DETAIL DATA
     Route::get('karyawan/detail/{id}', [AdminController::class, 'detailkaryawan'])->name('detailkaryawan');
     Route::get('jabatan/detail/{id}', [AdminController::class, 'detailjabatan'])->name('detailjabatan');
-    Route::get('admin/detail/{id}', [AdminController::class, 'detailadmin'])->name('detailadmin');
 
     // ROUTE KHUSUS UNTUK MEMBERI JABATAN
     Route::get('jabatan/edit/{id}', [AdminController::class, 'editjabatan'])->name('editjabatan');
