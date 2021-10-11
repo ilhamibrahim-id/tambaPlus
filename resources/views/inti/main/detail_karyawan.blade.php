@@ -4,66 +4,51 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">
-                        <h4 class="card-title">Detail {{ $kry->nama }}</h4>
-                    </div>
+                    <center>
+                    @if ($kry->foto == null)
+                    <img src="{{ asset('assets/img/logo-small.png') }}" height="150px" width="150px" class="rounded">
+                @else
+                <img src="{{ $kry->foto }}" class="card-img-top" alt="...">
+                @endif
+                    </center>
                     <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead class=" text-primary">
-                                    <th>NIK</th>
-                                    <th>Nama</th>
-                                    <th>Jabatan</th>
-                                    <th>Username</th>
-                                    <th>No.Telp</th>
-                                    <th>Email</th>
-                                    <th>Alamat</th>
-                                    <th>Foto</th>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            {{ $kry->nik }}
-                                        </td>
-                                        <td>
-                                            {{ $kry->nama }}
-                                        </td>
-                                        <td>
-                                            @if ($kry->jabatan == null)
-                                                -
-                                            @else
-                                                {{ $kry->jabatan->nama }}
-                                            @endif
-                                        </td>
-                                        <td>
-                                            {{ $kry->username }}
-                                        </td>
-                                        <td>
-                                            {{ $kry->tlpn }}
-                                        </td>
-                                        <td>
-                                            {{ $kry->email }}
-                                        </td>
-                                        <td>
-                                            {{ $kry->alamat }}
-                                        </td>
-                                        <td>
-                                            @if ($kry->foto == null)
-                                                -
-                                            @else
-                                                {{ $kry->foto }}
-                                            @endif
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <form action="{{ route('karyawan') }}" class="login-form">
-                                <button type="submit"
-                                    class="btn form-control btn-danger rounded submit px-3">Kembali</button>
-                            </form>
-                        </div>
+                    <center>
+                      <p class="card-text">{{ $kry->nama }}</p>
+                    </center>
                     </div>
-                </div>
+                    <table class="table">
+                        <thead class="thead-dark">
+                          <tr>
+                            <th scope="col">NIK</th>
+                            <th scope="col">Jabatan</th>
+                            <th scope="col">Username</th>
+                            <th scope="col">No.Telp</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Alamat</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row">{{ $kry->nik }}</th>
+                            <th scope="row">
+                                @if ($kry->jabatan == null)
+                                    -
+                                @else
+                                    {{ $kry->jabatan->nama }}
+                                @endif
+                            </th>
+                            <th scope="row">{{ $kry->username }}</th>
+                            <th scope="row">{{ $kry->tlpn }}</th>
+                            <th scope="row">{{ $kry->email }}</th>
+                            <th scope="row"> {{ $kry->alamat }}</th>
+                          </tr>
+                        </tbody>
+                      </table>
+                  </div>
+                  <form action="{{ route('karyawan') }}" class="login-form">
+                    <button type="submit"
+                        class="btn form-control btn-danger rounded submit px-3">Kembali</button>
+                </form>
             </div>
         </div>
     </div>

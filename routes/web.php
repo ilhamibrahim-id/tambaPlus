@@ -58,7 +58,7 @@ Route::middleware(['auth','cekrole:karyawan'])->prefix('karyawan')->group(functi
 ///////////////////////
 Route::middleware(['auth','cekrole:admin'])->prefix('admin')->group(function(){
     Route::get('dashboard', [AdminController::class, 'dashboard'])->name('main.dashboard');
-    
+
     // ROUTE UNTUK TABEL AWAL
     Route::get('karyawan', [AdminController::class, 'karyawan'])->name('karyawan');
     Route::get('listjob', [AdminController::class, 'listjob'])->name('listjob');
@@ -131,4 +131,7 @@ Route::middleware(['auth','cekrole:admin'])->prefix('admin')->group(function(){
 //////////////////////////
 Route::middleware(['auth','cekrole:karyawan,admin'])->prefix('karyawan')->group(function(){
     Route::post('logout', [LoginController::class, 'logout'])->name('logout');
+    Route::get('edituser', [EUController::class, 'index']);
+    Route::get('/edituser/edit/{id}',[EUController::class, 'edit']);
+    Route::post('/edituser/update',[EUController::class, 'update']);
 });
