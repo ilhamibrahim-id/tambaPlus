@@ -17,7 +17,7 @@
                                 </ul>
                             </div>
                         @endif
-                        <form action="/admin/blog/store" method="post">
+                        <form action="/admin/blog/store" method="post" enctype="multipart/form-data">
                             {{ csrf_field() }}
                             <div class="row">
                                 <div class="col-md-12">
@@ -39,7 +39,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Masukan Gambar : </label>
-                                        <input type="text" name="gambar" required="required" class="form-control">
+                                        <input type="file" name="gambar" required="required" class="form-control">
                                     </div>
                                 </div>
                             </div>

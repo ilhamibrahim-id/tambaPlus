@@ -14,6 +14,7 @@ use App\Models\User;
 use App\Models\Admin;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
@@ -79,7 +80,10 @@ class AdminController extends Controller
 
     public function hapuskaryawan($id)
     {
-        $kry = Karyawan::select('username')->where('id', $id)->first();
+        $kry = Karyawan::select('username','foto')->where('id', $id)->first();
+        if($kry->foto != null){
+            unlink(storage_path('app/public/'.$kry->foto));
+        };
         DB::table('users')->where('username', $kry)->delete();
         DB::table('jobselesai')->where('karyawan_id', $id)->delete();
         DB::table('karyawan')->where('id', $id)->delete();
@@ -233,16 +237,25 @@ class AdminController extends Controller
 
     public function storeblog(Request $request)
     {
-        DB::table('blog')->insert([
+        // return $request;
+        $request->validate([
+            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+        ]);
+        $imageName = time().'.'.$request->gambar->extension();  
+        $request->gambar->move(public_path('storage'), $imageName);
+        Blog::create([
             'judul' => $request->judul,
             'isi' => $request->isi,
-            'gambar' => $request->gambar,
+            'gambar' => $imageName,
         ]);
         return redirect('admin/blog');
     }
 
     public function hapusblog($id)
     {
+        $file = Blog::select('gambar')->where('id', $id)->first();
+        //return $file;
+        unlink(storage_path('app/public/'.$file->gambar));
         DB::table('blog')->where('id', $id)->delete();
         return back();
     }
@@ -256,10 +269,15 @@ class AdminController extends Controller
 
     public function updateblog(Request $request)
     {
+        $request->validate([
+            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+        ]);
+        $imageName = time().'.'.$request->gambar->extension();  
+        $request->gambar->move(public_path('storage'), $imageName);
         DB::table('blog')->where('id', $request->id)->update([
             'judul' => $request->judul,
             'isi' => $request->isi,
-            'gambar' => $request->gambar
+            'gambar' => $imageName,
         ]);
         return redirect('admin/blog');
     }

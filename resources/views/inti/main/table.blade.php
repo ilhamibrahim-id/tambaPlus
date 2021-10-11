@@ -256,7 +256,11 @@
                                                     {{ $bg->isi }}
                                                 </th>
                                                 <th>
-                                                    {{ $bg->gambar }}
+                                                    @if ($bg->gambar == null)
+                                                        -
+                                                    @else
+                                                        <img src="{{ asset('storage/' . $bg->gambar) }}" width="90px">
+                                                    @endif
                                                 </th>
                                                 <th>
                                                     <button type="submit"
