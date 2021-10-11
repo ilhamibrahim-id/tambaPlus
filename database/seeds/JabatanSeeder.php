@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
 use Illuminate\Support\Facades\DB;
 
 class JabatanSeeder extends Seeder
@@ -57,5 +56,6 @@ class JabatanSeeder extends Seeder
         ];
 
         DB::table('jabatan')->insert($jabatan);
+
     }
 }
