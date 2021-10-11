@@ -17,7 +17,7 @@ class CreateBlogTable extends Migration
             $table->id();
             $table->string('judul');
             $table->string('isi');
-            $table->string('gambar');
+            $table->string('gambar')->nullable();
             $table->timestamps();
         });
     }
