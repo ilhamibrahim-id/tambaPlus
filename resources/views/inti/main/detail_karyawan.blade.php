@@ -16,8 +16,9 @@
                       <p class="card-text">{{ $kry->nama }}</p>
                     </center>
                     </div>
-                    <table class="table">
-                        <thead class="thead-dark">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead class=" text-primary">
                           <tr>
                             <th scope="col">NIK</th>
                             <th scope="col">Jabatan</th>
@@ -44,6 +45,7 @@
                           </tr>
                         </tbody>
                       </table>
+                    </div>
                   </div>
                   <form action="{{ route('karyawan') }}" class="login-form">
                     <button type="submit"
