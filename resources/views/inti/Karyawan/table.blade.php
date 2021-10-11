@@ -16,25 +16,6 @@
                             @endif
                         </h4>
                     </div>
-                    {{-- CARI DATA --}}
-                    <form method="GET" @if (request()->is('karyawan/listjob') || request()->is('karyawan/listjob/cari'))
-                        action="{{ url('/karyawan/listjob/cari') }}"
-                    @elseif ((request()->is('karyawan/job')) || (request()->is('karyawan/job/cari')))
-                        action="{{ url('/karyawan/job/cari') }}"
-                        @endif
-                        >
-                        @csrf
-                        <div class="input-group rounded">
-                            <input type="text" class="form-control rounded" placeholder="Cari Data..."
-                                value="{{ old('keyword') }}" aria-label="Search" aria-describedby="search-addon"
-                                name="keyword" />
-                            <button type="submit">
-                                <span class="input-group-text border-0" id="search-addon">
-                                    <i class="nc-icon nc-zoom-split"></i>
-                                </span>
-                            </button>
-                        </div>
-                    </form>
                     {{-- KONTEN --}}
                     <div class="card-body">
                         <div class="table-responsive">
