@@ -1,4 +1,4 @@
-@extends('main.header')
+@extends('inti.main.header')
 @section('konten')
     <!-- End Navbar -->
     <div class="content">
@@ -6,7 +6,7 @@
             <div class="col-md-12">
                 <div class="card card-user">
                     <div class="card-header">
-                        <h5 class="card-title">Tambah Data Mahasiswa</h5>
+                        <h5 class="card-title">Rubah Password</h5>
                     </div>
                     <div class="card-body">
                         @if ($errors->any())
@@ -18,13 +18,14 @@
                                 </ul>
                             </div>
                         @endif
-                        <form action="/main/gantipassword/store" method="post">
+                        <form action="/public/password/update" method="post">
                             {{ csrf_field() }}
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Password Lama : </label>
-                                        <input type="password" name="old_password" required="required" class="form-control">
+                                        <input type="password" name="old_password" required="required"
+                                            class="form-control">
                                     </div>
                                 </div>
                             </div>
@@ -46,9 +47,9 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="update ml-auto mr-auto">
-                                    <button type="submit" class="btn btn-primary btn-round" value="Simpan Data">Simpan
-                                        Data</button>
+                                <div class="col-md-12">
+                                    <button type="submit" class="btn form-control btn-primary btn-round submit px-3"
+                                        value="Simpan Data">Ubah Password</button>
                                 </div>
                             </div>
                         </form>
@@ -57,5 +58,5 @@
             </div>
         </div>
     </div>
-    @include('main.footer')
+    @include('inti.main.footer')
 @endsection

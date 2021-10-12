@@ -32,7 +32,7 @@
                         <img src="{{ asset('storage/' . $data->foto) }}" width="90px">
                     @endif
                 </center>
-                <a href="/main/edituser" class="simple-text logo-normal">
+                <a href="/public/profile" class="simple-text logo-normal">
                     <center>HI,{{ $data->nama }}<b><i> <br />Login Sebagai
                                 {{ auth()->user()->role }}</i></b></center>
                 </a>
@@ -169,8 +169,8 @@
                                     </p>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" type="button" href="/main/edituser">Edit Profile</a>
-                                    <a class="dropdown-item" type="button" href="/main/gantipassword">Ganti
+                                    <a class="dropdown-item" type="button" href="/public/profile">Edit Profile</a>
+                                    <a class="dropdown-item" type="button" href="/public/password">Ganti
                                         Password</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                   document.getElementById('logout-form').submit();">

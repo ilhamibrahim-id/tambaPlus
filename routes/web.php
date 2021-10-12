@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\KaryawanController;
+use App\Http\Controllers\ProfileController;
 use App\Models\Layanan;
 
 ////////////////////////
@@ -129,9 +130,10 @@ Route::middleware(['auth','cekrole:admin'])->prefix('admin')->group(function(){
 //////////////////////////
 // ROUTE UNTUK ALL ROLE //
 //////////////////////////
-Route::middleware(['auth','cekrole:karyawan,admin'])->prefix('karyawan')->group(function(){
+Route::middleware(['auth','cekrole:karyawan,admin'])->prefix('public')->group(function(){
     Route::post('logout', [LoginController::class, 'logout'])->name('logout');
-    Route::get('edituser', [EUController::class, 'index']);
-    Route::get('/edituser/edit/{id}',[EUController::class, 'edit']);
-    Route::post('/edituser/update',[EUController::class, 'update']);
+    Route::get('profile', [ProfileController::class, 'profile'])->name('profile');;
+    Route::post('profile/update',[ProfileController::class, 'updateprofile'])->name('updateprofile');;
+    Route::get('password', [ProfileController::class, 'password'])->name('password');
+    Route::post('password/update',[ProfileController::class, 'updatepassword'])->name('updatepassword');
 });
