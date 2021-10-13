@@ -38,10 +38,8 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <div class="form-group">
                                         <label>Masukan Gambar : </label>
                                         <input type="file" name="gambar" required="required" class="form-control" value="{{ asset('storage/' . $kry->gambar) }}">
-                                    </div>
                                 </div>
                             </div>
                             <div class="row">

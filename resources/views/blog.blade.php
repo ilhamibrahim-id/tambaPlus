@@ -27,13 +27,14 @@
              -->
             <!-- Blog List Only Image
             ========================= -->
+            @foreach ($data as $data)
             <div class="blog-list-section blog-content-right row">
               <div class="col-md-9 blog-content-area">
                 <div class="blog-img">
-                  <img class="img-responsive" src="images/blog/blog-img1.jpg" alt="">
+                  <img class="img-responsive" src="{{  asset('storage/' . $data->gambar) }}" alt="">
                 </div>
                 <div class="blog-content">
-                  <a href="/blog-single"><h4 class="blog-title">A Complete, Ranke Destinat Moines’ <br /> Good Bars,Benefit of the t Media Elite</h4></a>
+                  <a href="/blog-single"><h4 class="blog-title">{{ $data->judul }}</h4></a>
                   <div class="meta">
                     <div class="date">
                       <p>22<sup>nd</sup>Jan 2016</p>
@@ -42,76 +43,12 @@
                       <p>By Michal Lomans</p>
                     </div>
                   </div>
-                  <p class="blog-decisions">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonum euismod tincidunt ut laoreet dolore magna autem vel eum iriure dolor in.</p>
+                  <p class="blog-decisions">{{ Str::limit($data->isi, 50) }}</p>
                   <a class="btn btn-default th-btn solid-btn" href="/blog-single" role="button">Read More <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                 </div>
               </div>
             </div>
-
-            <!-- Blog List Slider Image
-            ========================= -->
-            <div class="blog-list-section blog-content-left row">
-              <div class="col-md-9 blog-content-area">
-                <!-- Blog slider -->
-                <div id="blog-slider" class="blog-slider">
-                  <div class="item">
-                    <div class="blog-img">
-                      <img class="img-responsive" src="images/blog/blog-img2.jpg" alt="">
-                    </div>
-                  </div>
-                  <div class="item">
-                    <div class="blog-img">
-                      <img class="img-responsive" src="images/blog/blog-img1.jpg" alt="">
-                    </div>
-                  </div>
-                  <div class="item">
-                    <div class="blog-img">
-                      <img class="img-responsive" src="images/blog/blog-img3.jpg" alt="">
-                    </div>
-                  </div>
-                </div>
-                <div class="blog-content">
-                  <a href="/blog-single"><h4 class="blog-title">A Complete, Ranke Destinat Moines’ <br /> Good Bars.</h4></a>
-                  <div class="meta">
-                    <div class="date">
-                      <p>22<sup>nd</sup>Jan 2016</p>
-                    </div>
-                    <div class="author">
-                      <p>By Michal Lomans</p>
-                    </div>
-                  </div>
-                  <p class="blog-description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonum euismod tincidunt ut laoreet dolore magna autem vel eum iriure dolor in.</p>
-                  <a class="btn btn-default th-btn solid-btn" href="/blog-single" role="button">Read More <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
-                </div>
-              </div>
-            </div>
-
-              <!-- Blog List Video Image
-              ========================= -->
-            <div class="blog-list-section row">
-              <div class="col-md-9 blog-content-area">
-                <div class="video-section">
-                  <img class="img-responsive" src="images/blog/blog-img3.jpg" alt="">
-                  <div class="video-overlay">
-                    <a id="th-video" class="th-video" href="/blog-single"><i class="fa fa-play-circle-o" aria-hidden="true"></i></a>
-                  </div>
-                </div>
-                <div class="blog-content">
-                  <a href="/blog-single"><h4 class="blog-title">A Complete, Ranke Destinat Moines’ <br /> Good Bars,Benefit of the t Media Elite</h4></a>
-                  <div class="meta">
-                    <div class="date">
-                      <p>22<sup>nd</sup>Jan 2016</p>
-                    </div>
-                    <div class="author">
-                      <p>By Michal Lomans</p>
-                    </div>
-                  </div>
-                  <p class="blog-decisions">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonum euismod tincidunt ut laoreet dolore magna autem vel eum iriure dolor in.</p>
-                  <a class="btn btn-default th-btn solid-btn" href="/blog-single" role="button">Read More <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
-                </div>
-              </div>
-            </div>
-
+            @endforeach
           <!-- See All Post -->
           <div class="col-md-12">
             <div class="see-all-post text-center">
