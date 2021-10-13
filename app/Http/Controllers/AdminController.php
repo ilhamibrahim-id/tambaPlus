@@ -36,6 +36,24 @@ class AdminController extends Controller
         return view('inti.main.table', compact('data', 'kry'));
     }
 
+    public function carikaryawan(Request $request)
+    {
+        $data = Admin::where('username', '=', auth()->user()->username)->first();
+        $jabatan = Jabatan::select('id')->where('nama', 'like', "%" . $request->keyword . "%")->first();
+        if ($jabatan != null){
+            $kry = Karyawan::with('jabatan')
+            ->where('jabatan_id', 'like', "%" . $jabatan->id . "%")->paginate(10);
+        } else {
+            $kry = Karyawan::with('jabatan')
+            ->where('nik', 'like', "%" . $request->keyword . "%")
+            ->orWhere('nama', 'like', "%" . $request->keyword . "%")
+            ->orWhere('username', 'like', "%" . $request->keyword . "%")
+            ->paginate(10);
+        }
+        //return $kry;
+        return view('inti.main.table', compact('data', 'kry'));
+    }
+
     public function detailkaryawan($id)
     {
         $data = Admin::where('username', '=', auth()->user()->username)->first();
@@ -123,6 +141,13 @@ class AdminController extends Controller
         return view('inti.main.table', compact('data', 'lj'));
     }
 
+    public function carilistjob(Request $request)
+    {
+        $data = Admin::where('username', '=', auth()->user()->username)->first();
+        $lj = Listjob::where('nama', 'like', "%" . $request->keyword . "%")->paginate(10);
+        return view('inti.main.table', compact('data', 'lj'));
+    }
+
     public function tambahlistjob()
     {
         $data = Admin::where('username', '=', auth()->user()->username)->first();
@@ -172,6 +197,22 @@ class AdminController extends Controller
         $job = Jobselesai::paginate(10);
         $lj = Listjob::all();
         $kry = Karyawan::all();
+        return view('inti.main.table', compact('data', 'job', 'lj', 'kry'));
+    }
+
+    public function carijob(Request $request)
+    {
+        $data = Admin::where('username', '=', auth()->user()->username)->first();
+        $lj = Listjob::all();
+        $kry = Karyawan::all();
+        $datalj = Listjob::select('id')->where('nama', 'like', "%" . $request->keyword . "%")->first();
+        $datakry = Karyawan::select('id')->where('nama', 'like', "%" . $request->keyword . "%")->first();
+        if ($datalj != null){
+            $job = Jobselesai::where('listjob_id', 'like', "%" . $datalj->id . "%")->paginate(10);
+        } else {
+            $job = Jobselesai::where('karyawan_id', 'like', "%" . $datakry->id . "%")->paginate(10);
+        }
+        //return $kry;
         return view('inti.main.table', compact('data', 'job', 'lj', 'kry'));
     }
 
@@ -226,6 +267,13 @@ class AdminController extends Controller
     {
         $data = Admin::where('username', '=', auth()->user()->username)->first();
         $blog = Blog::paginate(10);
+        return view('inti.main.table', compact('data', 'blog'));
+    }
+
+    public function cariblog(Request $request)
+    {
+        $data = Admin::where('username', '=', auth()->user()->username)->first();
+        $blog = Blog::where('judul', 'like', "%" . $request->keyword . "%")->paginate(10);
         return view('inti.main.table', compact('data', 'blog'));
     }
 
@@ -292,6 +340,13 @@ class AdminController extends Controller
         return view('inti.main.table', compact('data', 'lyn'));
     }
 
+    public function carilayanan(Request $request)
+    {
+        $data = Admin::where('username', '=', auth()->user()->username)->first();
+        $lyn = Layanan::where('nama', 'like', "%" . $request->keyword . "%")->paginate(10);
+        return view('inti.main.table', compact('data', 'lyn'));
+    }
+
     public function tambahlayanan()
     {
         $data = Admin::where('username', '=', auth()->user()->username)->first();
@@ -338,6 +393,13 @@ class AdminController extends Controller
     {
         $data = Admin::where('username', '=', auth()->user()->username)->first();
         $jabatan = Jabatan::paginate(10);
+        return view('inti.main.table', compact('data', 'jabatan'));
+    }
+
+    public function carijabatan(Request $request)
+    {
+        $data = Admin::where('username', '=', auth()->user()->username)->first();
+        $jabatan = Jabatan::where('nama', 'like', "%" . $request->keyword . "%")->paginate(10);
         return view('inti.main.table', compact('data', 'jabatan'));
     }
 
@@ -438,6 +500,16 @@ class AdminController extends Controller
     {
         $data = Admin::where('username', '=', auth()->user()->username)->first();
         $admin = Admin::paginate(10);
+        return view('inti.main.table', compact('data', 'admin'));
+    }
+
+    public function cariadmin(Request $request)
+    {
+        $data = Admin::where('username', '=', auth()->user()->username)->first();
+        $admin = Admin::where('nama', 'like', "%" . $request->keyword . "%")
+        ->orWhere('username', 'like', "%" . $request->keyword . "%")
+        ->orWhere('jabatan', 'like', "%" . $request->keyword . "%")
+        ->paginate(10);
         return view('inti.main.table', compact('data', 'admin'));
     }
 

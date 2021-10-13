@@ -28,17 +28,17 @@
                     <form method="GET" @if (request()->is('admin/karyawan') || request()->is('admin/karyawan/cari'))
                         action="{{ url('/admin/karyawan/cari') }}"
                     @elseif ((request()->is('admin/listjob')) || (request()->is('admin/listjob/cari')))
-                        action="{{ url('/admin/karyawan/cari') }}"
+                        action="{{ url('/admin/listjob/cari') }}"
                     @elseif ((request()->is('admin/job')) || (request()->is('admin/job/cari')))
-                        action="{{ url('/admin/karyawan/cari') }}"
+                        action="{{ url('/admin/job/cari') }}"
                     @elseif ((request()->is('admin/jabatan')) ||(request()->is('admin/jabatan/cari')))
-                        action="{{ url('/admin/karyawan/cari') }}"
+                        action="{{ url('/admin/jabatan/cari') }}"
                     @elseif ((request()->is('admin/blog')) ||(request()->is('admin/blog/cari')))
-                        action="{{ url('/admin/karyawan/cari') }}"
+                        action="{{ url('/admin/blog/cari') }}"
                     @elseif ((request()->is('admin/layanan')) ||(request()->is('admin/layanan/cari')))
-                        action="{{ url('/admin/karyawan/cari') }}"
+                        action="{{ url('/admin/layanan/cari') }}"
                     @elseif ((request()->is('admin/admin')) ||(request()->is('admin/admin/cari')))
-                        action="{{ url('/admin/karyawan/cari') }}"
+                        action="{{ url('/admin/admin/cari') }}"
                         @endif
                         >
                         @csrf
