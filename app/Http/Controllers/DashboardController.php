@@ -9,7 +9,7 @@ use App\Models\Layanan;
 class DashboardController extends Controller
 {
     public function blog(){
-        $data = Blog::paginate(3);
+        $data = Blog::orderBy('created_at','desc')->paginate(3);
         return view('blog', compact('data'));
     }
 

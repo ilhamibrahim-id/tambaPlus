@@ -37,10 +37,10 @@
                   <a href="/blog-single"><h4 class="blog-title">{{ $datas->judul }}</h4></a>
                   <div class="meta">
                     <div class="date">
-                      <p>22<sup>nd</sup>Jan 2016</p>
+                      {{ $datas->created_at }}
                     </div>
                     <div class="author">
-                      <p>By Michal Lomans</p>
+                      <p>By Admin</p>
                     </div>
                   </div>
                   <p class="blog-decisions">{{ Str::limit($datas->isi, 50) }}</p>
