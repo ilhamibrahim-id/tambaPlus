@@ -1,6 +1,8 @@
 @extends('inti.login.header')
 @section('konten')
-    <body style="background-image: url('{{ url('images/polinema.png') }}');">
+    <body style="background-image: url('{{ url('images/slider/bg-3.jpg') }}'); height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;">
         <section class="ftco-section">
             <div class="container">
                 <div class="row justify-content-center">
