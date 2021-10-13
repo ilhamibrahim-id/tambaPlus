@@ -9,7 +9,7 @@
         <div class="col-md-12">
           <h1><u>Nails</u>
             <br />Every Day<br />
-            <a class="btn btn-default btn-main" href="#" role="button">Bergabung Bersama Kami ?</a></h1>
+            <a class="btn btn-default btn-main" href="/join" role="button">Bergabung Bersama Kami ?</a></h1>
         </div>
       </div>
     </div>
