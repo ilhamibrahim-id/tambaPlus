@@ -27,14 +27,14 @@
              -->
             <!-- Blog List Only Image
             ========================= -->
-            @foreach ($data as $data)
+            @foreach ($data as $datas)
             <div class="blog-list-section blog-content-right row">
               <div class="col-md-9 blog-content-area">
                 <div class="blog-img">
-                  <img class="img-responsive" src="{{  asset('storage/' . $data->gambar) }}" alt="">
+                  <img class="img-responsive" src="{{  asset('storage/' . $datas->gambar) }}" alt="">
                 </div>
                 <div class="blog-content">
-                  <a href="/blog-single"><h4 class="blog-title">{{ $data->judul }}</h4></a>
+                  <a href="/blog-single"><h4 class="blog-title">{{ $datas->judul }}</h4></a>
                   <div class="meta">
                     <div class="date">
                       <p>22<sup>nd</sup>Jan 2016</p>
@@ -43,8 +43,7 @@
                       <p>By Michal Lomans</p>
                     </div>
                   </div>
-                  <p class="blog-decisions">{{ Str::limit($data->isi, 50) }}</p>
-                  <a class="btn btn-default th-btn solid-btn" href="/blog-single" role="button">Read More <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                  <p class="blog-decisions">{{ Str::limit($datas->isi, 50) }}</p>
                 </div>
               </div>
             </div>
@@ -52,7 +51,7 @@
           <!-- See All Post -->
           <div class="col-md-12">
             <div class="see-all-post text-center">
-              <a class="btn btn-default th-btn solid-btn" href="#" role="button">See All Posts <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                {{ $data->render('pagination::bootstrap-4') }}
             </div>
           </div>
         </div>
