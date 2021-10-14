@@ -44,6 +44,7 @@
                     </div>
                   </div>
                   <p class="blog-decisions">{{ Str::limit($datas->isi, 50) }}</p>
+                  <a class="btn btn-default th-btn solid-btn" href="/blog-single" role="button">Read More <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                 </div>
               </div>
             </div>
