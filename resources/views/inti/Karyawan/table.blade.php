@@ -31,7 +31,8 @@
                                         <th>Job</th>
                                         <th>Status</th>
                                         <th>Action</th>
-                                    @elseif ((request()->is('karyawan/jabatan')) || (request()->is('karyawan/jabatan/cari')))
+                                    @elseif ((request()->is('karyawan/jabatan')) ||
+                                        (request()->is('karyawan/jabatan/cari')))
                                         <th>Nama</th>
                                         <th>Jabatan</th>
                                         <th>Deskripsi Jabatan</th>
@@ -83,21 +84,24 @@
                                             </tr>
                                         @endforeach
                                         {{-- TABEL JABATAN --}}
-                                    @elseif ((request()->is('karyawan/jabatan')) ||(request()->is('karyawan/jabatan/cari')))
-                                        <tr>
-                                            <th>
-                                                {{ $kry->nama }}
-                                            </th>
-                                            <th>
-                                                {{ $kry->jabatan->nama }}
-                                            </th>
-                                            <th>
-                                                {{ $kry->jabatan->deskripsi }}
-                                            </th>
-                                            <th>
-                                                {{ $kry->jabatan->gaji }}
-                                            </th>
-                                        </tr>
+                                    @elseif ((request()->is('karyawan/jabatan'))
+                                        ||(request()->is('karyawan/jabatan/cari')))
+                                        @if ($kry->jabatan = null)
+                                            <tr>
+                                                <th>
+                                                    {{ $kry->nama }}
+                                                </th>
+                                                <th>
+                                                    {{ $kry->jabatan->nama }}
+                                                </th>
+                                                <th>
+                                                    {{ $kry->jabatan->deskripsi }}
+                                                </th>
+                                                <th>
+                                                    {{ $kry->jabatan->gaji }}
+                                                </th>
+                                            </tr>
+                                        @endif
                                     @endif
                                 </tbody>
                             </table>
