@@ -17,7 +17,7 @@ class CreateJobSelesaiTable extends Migration
             $table->id();
             $table->unsignedBigInteger('listjob_id')->nullable();
             $table->unsignedBigInteger('karyawan_id')->nullable();
-            $table->string('bukti');
+            $table->string('bukti')->nullable();
             $table->string('status');
             $table->timestamps();
         });
