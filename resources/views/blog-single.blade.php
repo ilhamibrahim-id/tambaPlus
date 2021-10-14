@@ -1,11 +1,14 @@
 @extends('main.header')
 @section('konten')
-<section class="page-header services-header" data-parallax="scroll" data-image-src="images/header/blog-folding-img.jpg">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <h1 class="text-center">Our Blogs. <br> We Ensure Quality Design.</h1>
+    <section class="page-header services-header" data-parallax="scroll" data-image-src="images/header/blog-folding-img.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="text-center">Berita</h1>
+                </div>
+            </div>
         </div>
+<<<<<<< HEAD
       </div>
     </div>
   </section>
@@ -79,25 +82,23 @@
                       <h4 class="media-heading comments-author">Junaed Shepherd</h4>
                     </div>
                   </div>
+=======
+    </section>
+
+    <!-- Blog Sections 
+        =========================-->
+    <section class="blog-single">
+        <div class="container">
+            <div class="row">
+                <div class="title text-center">
+                    <h2>{{ $data->judul }}</h2>
+>>>>>>> 07d2800b558930076dd82c1aa1c3ad966d6c2131
                 </div>
-              </div>
-              <!-- Single Blog Page Form
-              ================================== -->
-              <div class="blog-single-form">
-                <form>
-                  <div class="form-group col-md-6 padding-0">
-                    <input type="text" class="form-control blog-form-input" placeholder="Your Name">
-                  </div>
-                  <div class="form-group col-md-6 padding-0 padding-left-15">
-                    <input type="email" class="form-control blog-form-input" placeholder="Your Email">
-                  </div>
-                  <div class="form-group col-md-12 padding-0">
-                    <textarea class="form-control blog-form-textarea" placeholder="Your Comment"></textarea>
-                  </div>
-                  <div class="col-md-12 padding-0">
-                    <div class="form-submit-btn text-center">
-                      <button type="submit" class="btn btn-default btn-main th-btn">Submit Comment</button>
+                <div class="col-md-12">
+                    <div class="blog-single-section-img">
+                        <img src="{{ asset('storage/' . $data->gambar) }}" alt="Blog Single Img">
                     </div>
+<<<<<<< HEAD
                   </div>
                 </form>
               </div>
@@ -158,23 +159,35 @@
                         <div class="media-left media-middle"><p class="post-count">3</p></div>
                         <div class="media-body">
                           <p>Typography is  important fact for liusto odio dolore.</p>
+=======
+                    <div class="blog-single-content">
+                        <div class="blog-content-description">
+                            <h3><a class="blog-content-title" href="#">{{ $data->judul }}</a></h3>
+                            <div class="meta">
+                                <div class="date" style="color:white">
+                                    {{ $data->created_at }}
+                                </div>
+                                <div class="author">
+                                    <p>By Admin</p>
+                                </div>
+                            </div>
+                            <p class="blog-description">{{ $data->isi }}</p>
+>>>>>>> 07d2800b558930076dd82c1aa1c3ad966d6c2131
                         </div>
-                      </div>
-                  </a>
-                  <a href="#" class="list-group-item">
-                      <div class="media">
-                        <div class="media-left media-middle"><p class="post-count">4</p></div>
-                        <div class="media-body">
-                          <p>Typography is  important fact for liusto odio dolore.</p>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="see-all-post text-center">
+                            <a class="btn btn-default th-btn solid-btn" href="/blog" role="button"><i
+                                    class="fa fa-long-arrow-left" aria-hidden="true"></i> Back To All Posts </a>
                         </div>
-                      </div>
-                  </a>
-              </div>
-          </div>
-      </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
     @include('main.footer')
+<<<<<<< HEAD
     @endsection
+=======
+@endsection
+>>>>>>> 07d2800b558930076dd82c1aa1c3ad966d6c2131

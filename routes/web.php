@@ -19,9 +19,7 @@ Route::get('/kontak', function () {
     return view('kontak');
 });
 Route::get('/blog', [DashboardController::class, 'blog']);
-Route::get('/blog-single', function () {
-    return view('blog-single');
-});
+Route::get('/blog-single/{id}', [DashboardController::class, 'detailblog']);
 Route::get('/join', function () {
     return view('join');
 });
