@@ -50,7 +50,7 @@
                         <div class="table text-center">
                             <div class="table-price border-effect">
                                 <h4 class="pricing-title">{{ $lyn->nama }}</h4>
-                                <h2 class="price">{{ $lyn->harga }}</h2>
+                                <h3 class="price">{{ $lyn->harga }}</h3>
                             </div>
                             <div class="pricing-list border-effect">
                                 <ul class="features-list">
