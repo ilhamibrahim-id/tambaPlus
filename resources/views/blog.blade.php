@@ -18,7 +18,6 @@
           <h2>Berita</h2>
         </div>
         <div class="col-md-12">
-            ========================= -->
             @foreach ($data as $datas)
             <div class="blog-list-section blog-content-right row">
               <div class="col-md-9 blog-content-area">
