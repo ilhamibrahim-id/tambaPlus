@@ -19,7 +19,8 @@
     <link rel="stylesheet" href="{{asset('plugins/animate/animate.css')}}">
     <!-- slick slider -->
     <link rel="stylesheet" href="{{asset('plugins/slick/slick.css')}}">
-
+ {{-- icon --}}
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Revolution Slider -->
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <style>
@@ -28,6 +29,32 @@
       #map_canvas {
         height: 100%;
       }
+
+      header .content .countdown {
+        color: #FFF;
+        font-size: 36px;
+        font-weight: 400;
+      }
+      @media screen and (min-width: 480px) {
+        header .content .countdown {
+          font-size: 42px;
+        }
+      }
+      @media screen and (min-width: 768px) {
+        header .content .countdown {
+          font-size: 56px;
+        }
+      }
+      @media screen and (min-width: 1024px) {
+        header .content .countdown {
+          font-size: 72px;
+        }
+      }
+      @media screen and (min-width: 1280px) {
+        header .content .countdown {
+          font-size: 88px;
+        }
+  }
       /* Optional: Makes the sample page fill the window. */
     </style>
     <script src="{{asset('plugins/modernizr.min.js')}}"></script>
