@@ -13,6 +13,11 @@ class DashboardController extends Controller
         return view('blog', compact('data'));
     }
 
+    public function detailblog($id){
+        $data = Blog::find($id);
+        return view('blog-single', compact('data'));
+    }
+
     public function layanan(){
         $data = Layanan::all();
         return view('servis', compact('data'));
