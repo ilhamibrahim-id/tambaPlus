@@ -22,4 +22,9 @@ class DashboardController extends Controller
         $data = Layanan::all();
         return view('servis', compact('data'));
     }
+
+    public function layananapi(){
+        $data = Layanan::all();
+        return response()->json(['data' => $data]);
+    }
 }
