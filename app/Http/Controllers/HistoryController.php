@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Keuangan;
+use App\Models\Mobile\History;
 use Illuminate\Http\Request;
 
-class KeuanganController extends Controller
+class HistoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class KeuanganController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Keuangan  $keuangan
+     * @param  \App\Models\Mobile\History  $history
      * @return \Illuminate\Http\Response
      */
-    public function show(Keuangan $keuangan)
+    public function show(History $history)
     {
         //
     }
@@ -52,10 +52,10 @@ class KeuanganController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Keuangan  $keuangan
+     * @param  \App\Models\Mobile\History  $history
      * @return \Illuminate\Http\Response
      */
-    public function edit(Keuangan $keuangan)
+    public function edit(History $history)
     {
         //
     }
@@ -64,10 +64,10 @@ class KeuanganController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Keuangan  $keuangan
+     * @param  \App\Models\Mobile\History  $history
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Keuangan $keuangan)
+    public function update(Request $request, History $history)
     {
         //
     }
@@ -75,10 +75,10 @@ class KeuanganController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Keuangan  $keuangan
+     * @param  \App\Models\Mobile\History  $history
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Keuangan $keuangan)
+    public function destroy(History $history)
     {
         //
     }

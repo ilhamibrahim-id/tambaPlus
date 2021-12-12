@@ -18,8 +18,8 @@ class CreateAccpesansTable extends Migration
             $table->unsignedBigInteger('pesanans_id')->nullable();
             $table->unsignedBigInteger('mitras_id')->nullable();
             $table->unsignedBigInteger('lokasims_id')->nullable();
-            $table->string('harga');
-            $table->string('catatan');
+            $table->string('harga')->nullable();
+            $table->string('catatan')->nullable();
             $table->foreign('pesanans_id')->references('id')->on('pesanans');
             $table->foreign('mitras_id')->references('id')->on('mitras');
             $table->foreign('lokasims_id')->references('id')->on('lokasims');

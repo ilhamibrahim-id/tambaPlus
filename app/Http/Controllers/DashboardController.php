@@ -25,6 +25,11 @@ class DashboardController extends Controller
 
     public function layananapi(){
         $data = Layanan::all();
-        return response()->json(['data' => $data]);
+        return response()->json(['data' => $data],200);
+    }
+
+    public function beritaapi(){
+        $data = Blog::orderBy('created_at','desc');
+        return response()->json(['data' => $data],200);
     }
 }

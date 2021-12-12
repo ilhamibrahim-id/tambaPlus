@@ -17,11 +17,11 @@ class CreateMitrasTable extends Migration
             $table->id();
             $table->string('nik')->unique();
             $table->string('nama');
-            $table->string('foto');
+            $table->string('foto')->nullable();
             $table->string('tlpn');
             $table->string('email');
             $table->string('alamat');
-            $table->string('status');
+            $table->string('totalorderan')->nullable();
             $table->timestamps();
         });
     }

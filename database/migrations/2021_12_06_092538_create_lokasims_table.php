@@ -18,6 +18,7 @@ class CreateLokasimsTable extends Migration
             $table->unsignedBigInteger('mitras_id')->nullable();
             $table->string('latitude');
             $table->string('longitude');
+            $table->string('status');
             $table->foreign('mitras_id')->references('id')->on('mitras');
             $table->timestamps();
         });

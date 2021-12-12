@@ -1,10 +1,10 @@
 <?php
 
-namespace App;
+namespace App\Models\Mobile;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Marketing extends Model
+class History extends Model
 {
     //
 }
