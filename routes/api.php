@@ -3,6 +3,7 @@
 use App\Http\Controllers\AccpesanController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\MitraController;
 use App\Http\Controllers\PesananController;
 use Illuminate\Http\Request;
@@ -32,35 +33,35 @@ Route::get('/beritaapi', [DashboardController::class,'beritaapi']);
 ////////////////////////
 // ROUTE API CUSTOMER //
 ////////////////////////
-Route::post('/registerc', [CustomerController::class,'register']);
+Route::post('/registerc', [CustomerController::class,'store']);
 Route::post('/loginc', [CustomerController::class,'login']);
 Route::post('/updatec', [CustomerController::class,'update']);
-Route::get('/customer', [CustomerController::class, 'customer']);
+Route::get('/customer', [CustomerController::class, 'index']);
 Route::get('/logoutc', [CustomerController::class, 'logout']);
 
 /////////////////////
 // ROUTE API MITRA //
 /////////////////////
-Route::post('/registerm', [MitraController::class,'register']);
+Route::post('/registerm', [MitraController::class,'store']);
 Route::post('/loginm', [MitraController::class,'login']);
 Route::post('/updatem', [MitraController::class,'update']);
-Route::get('/mitra', [MitraController::class, 'mitra']);
+Route::get('/mitra', [MitraController::class, 'index']);
 Route::get('/logoutm', [MitraController::class, 'logout']);
 
 /////////////////////////
 // ROUTE API TRANSAKSI //
 /////////////////////////
-Route::post('/tambahpesan', [PesananController::class,'create']);
-Route::get('/hapuspesan', [PesananController::class,'delete']);
+Route::post('/tambahpesan', [PesananController::class,'store']);
+Route::get('/hapuspesan', [PesananController::class,'destroy']);
 
 /////////////////////////////
 // ROUTE API TRANSAKSI ACC //
 /////////////////////////////
-Route::post('/prosespesan', [AccpesanController::class,'create']);
-Route::get('/selesaipesan', [AccpesanController::class,'delete']);
+Route::post('/prosespesan', [AccpesanController::class,'store']);
+Route::get('/selesaipesan', [AccpesanController::class,'destroy']);
 
 ///////////////////////
 // ROUTE API HISTORY //
 ///////////////////////
-Route::post('/tambahhistory');
+Route::post('/tambahhistory', [HistoryController::class,'store']);
 
