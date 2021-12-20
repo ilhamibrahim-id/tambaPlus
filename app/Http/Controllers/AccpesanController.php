@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 
 class AccpesanController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $data = Accpesan::with('pesanan','mitra','lokasim');
     }
 
     public function store(Request $request)

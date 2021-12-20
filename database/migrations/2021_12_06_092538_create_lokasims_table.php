@@ -16,8 +16,8 @@ class CreateLokasimsTable extends Migration
         Schema::create('lokasims', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('mitras_id')->nullable();
-            $table->string('latitude');
-            $table->string('longitude');
+            $table->double('latitude');
+            $table->double('longitude');
             $table->string('status');
             $table->foreign('mitras_id')->references('id')->on('mitras');
             $table->timestamps();

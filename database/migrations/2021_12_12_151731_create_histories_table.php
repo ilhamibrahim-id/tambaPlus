@@ -18,8 +18,8 @@ class CreateHistoriesTable extends Migration
             $table->unsignedBigInteger('layanan_id')->nullable();
             $table->unsignedBigInteger('customers_id')->nullable();
             $table->unsignedBigInteger('mitras_id')->nullable();
-            $table->string('latitude');
-            $table->string('longitude');
+            $table->double('latitude');
+            $table->double('longitude');
             $table->string('harga')->nullable();
             $table->string('catatan')->nullable();
             $table->foreign('layanan_id')->references('id')->on('layanan');

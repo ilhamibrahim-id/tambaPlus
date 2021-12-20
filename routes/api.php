@@ -53,12 +53,14 @@ Route::get('/logoutm', [MitraController::class, 'logout']);
 /////////////////////////
 Route::post('/tambahpesan', [PesananController::class,'store']);
 Route::get('/hapuspesan', [PesananController::class,'destroy']);
+Route::get('/pesanbaru', [PesananController::class,'index']);
 
 /////////////////////////////
 // ROUTE API TRANSAKSI ACC //
 /////////////////////////////
 Route::post('/prosespesan', [AccpesanController::class,'store']);
 Route::get('/selesaipesan', [AccpesanController::class,'destroy']);
+Route::get('/pesankini', [AccpesanController::class,'index']);
 
 ///////////////////////
 // ROUTE API HISTORY //

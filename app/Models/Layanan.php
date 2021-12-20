@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Mobile\Pesanan;
 use Illuminate\Database\Eloquent\Model;
 
 class Layanan extends Model
@@ -12,4 +13,9 @@ class Layanan extends Model
         'deskripsi',
         'harga',
     ];
+
+    // public function pesanan()
+    // {
+    //     return $this->belongsTo(Pesanan::class);
+    // }
 }
