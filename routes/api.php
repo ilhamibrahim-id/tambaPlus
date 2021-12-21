@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\MitraController;
 use App\Http\Controllers\PesananController;
+use App\Models\Mobile\Pesanan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -61,6 +62,7 @@ Route::get('/lokasim', [MitraController::class, 'index']);
 Route::post('/tambahpesan', [PesananController::class, 'store']);
 Route::get('/hapuspesan', [PesananController::class, 'destroy']);
 Route::get('/pesanbaru', [PesananController::class, 'index']);
+Route::get('/pesanterdekat', [PesananController::class, 'terdekat']);
 
 /////////////////////////////
 // ROUTE API TRANSAKSI ACC //

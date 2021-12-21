@@ -15,6 +15,22 @@ class PesananController extends Controller
         return response()->json(['data' => $pesanan, 'success' => true], 200);
     }
 
+    public function terdekat(Request $request)
+    {
+        $latup = $request->latitude + 5;
+        $latdown = $request->latitude - 5;
+        $longup = $request->longitude + 5;
+        $longdown = $request->longitude - 5;
+        $pesanan = Pesanan::with('layanan', 'customer')
+        ->where('latitude','<', $latup)
+        ->where('latitude','>', $latdown)
+        ->where('longitude','<', $longup)
+        ->where('longitude','>', $longdown)
+        ->get();
+        // return $pesanan;
+        return response()->json(['data' => $pesanan, 'success' => true], 200);
+    }
+
     public function store(Request $request)
     {
         Pesanan::created([
