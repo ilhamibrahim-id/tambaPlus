@@ -45,7 +45,6 @@ class CustomerController extends Controller
             'nama' => $request->nama,
             'email' => $request->username,
             'tlpn' => $request->tlpn,
-            'alamat' => $request->alamat,
         ]);
         $request->request->add(['password' => $plainPassword]);
         return $this->login($request);

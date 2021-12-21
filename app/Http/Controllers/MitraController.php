@@ -46,7 +46,6 @@ class MitraController extends Controller
             'nama' => $request->nama,
             'email' => $request->username,
             'tlpn' => $request->tlpn,
-            'alamat' => $request->alamat,
             'totalorderan' => '0',
         ]);
         $idmitra = Mitra::select('id')->where('nik',$request->nik)->first();

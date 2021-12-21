@@ -21,7 +21,6 @@ class CreateMitrasTable extends Migration
             $table->string('tlpn');
             $table->string('email');
             $table->string('password');
-            $table->string('alamat');
             $table->string('totalorderan')->nullable();
             $table->timestamps();
         });

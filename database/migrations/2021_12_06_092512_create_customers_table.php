@@ -21,7 +21,6 @@ class CreateCustomersTable extends Migration
             $table->string('tlpn');
             $table->string('email');
             $table->string('password');
-            $table->string('alamat');
             $table->timestamps();
         });
     }

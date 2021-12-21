@@ -10,9 +10,9 @@ class PesananController extends Controller
 {
     public function index(Request $request)
     {
-        $pesanan = Pesanan::with('layanan','customer')->where('customers_id',$request->idcustomer)->first();
+        $pesanan = Pesanan::with('layanan', 'customer')->where('customers_id', $request->idcustomer)->first();
         // return $pesanan;
-        return response()->json(['data' => $pesanan, 'success' => true],200);
+        return response()->json(['data' => $pesanan, 'success' => true], 200);
     }
 
     public function store(Request $request)
@@ -24,7 +24,7 @@ class PesananController extends Controller
             'longitude' => $request->longitude
         ]);
 
-        return response()->json(['data'=>$request,'success'=>true],200);
+        return response()->json(['data' => $request->all(), 'success' => true], 200);
     }
 
     public function update(Request $request)
@@ -34,7 +34,7 @@ class PesananController extends Controller
 
     public function destroy(Request $request)
     {
-        Pesanan::where('id',$request->id)->delete();
-        return response()->json(['success'=>true],200);
+        Pesanan::where('id', $request->id)->delete();
+        return response()->json(['success' => true], 200);
     }
 }
