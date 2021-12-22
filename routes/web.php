@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\ProfileController;
+// use App\Http\Controllers\HistoryController;
 use App\Models\Layanan;
 
 ////////////////////////
@@ -66,6 +67,7 @@ Route::middleware(['auth','cekrole:admin'])->prefix('admin')->group(function(){
     Route::get('blog', [AdminController::class, 'blog'])->name('blog');
     Route::get('layanan', [AdminController::class, 'layanan'])->name('layanan');
     Route::get('admin', [AdminController::class, 'admin'])->name('admin');
+    Route::get('histori', [AdminController::class, 'chartHistory'])->name('chart-histori');
 
     // ROUTE UNTUK FORM TAMBAH DATA
     Route::get('karyawan/tambah', [AdminController::class, 'tambahkaryawan'])->name('tambahkaryawan');

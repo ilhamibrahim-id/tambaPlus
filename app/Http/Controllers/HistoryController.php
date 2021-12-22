@@ -34,4 +34,10 @@ class HistoryController extends Controller
     {
         //
     }
+    public function chartHistory()
+    {
+        $data = History::selectRaw("harga, created_at")->orderBy('created_at')->get();
+        return view('inti.History.history', compact('data'));
+    }
+    
 }

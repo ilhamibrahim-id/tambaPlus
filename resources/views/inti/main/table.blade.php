@@ -21,6 +21,8 @@
                                 Data Layanan
                             @elseif ((request()->is('admin/admin')) ||(request()->is('admin/admin/cari')))
                                 Data Admin
+                            @elseif ((request()->is('admin/histori')) ||(request()->is('admin/histori/cari')))
+                                Data History
                             @endif
                         </h4>
                     </div>

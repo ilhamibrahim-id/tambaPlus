@@ -11,6 +11,7 @@ use App\Models\Karyawan;
 use App\Models\Layanan;
 use App\Models\Listjob;
 use App\Models\User;
+use App\Models\Mobile\History;
 use App\Models\Admin;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -532,5 +533,13 @@ class AdminController extends Controller
             'username' => $request->username,
         ]);
         return redirect('admin/admin');
+    }
+
+    public function chartHistory()
+    {
+        $data = Admin::where('username', '=', auth()->user()->username)->first();
+        $history = History::selectRaw("harga, created_at")->orderBy('created_at')->get();
+        // return $history;
+        return view('inti.History.history', compact('data', 'history'));
     }
 }
