@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Mobile\History;
 use Illuminate\Http\Request;
-
+use Carbon\Carbon;
 class HistoryController extends Controller
 {
     public function index()
@@ -14,6 +14,8 @@ class HistoryController extends Controller
 
     public function store(Request $request)
     {
+        $date = date('Y-m-d');
+        $hari = Carbon::now()->dayOfWeek;
         History::created([
             'layanan_id' => $request->idlayanan,
             'customers_id' => $request->idcustomer,
@@ -22,6 +24,8 @@ class HistoryController extends Controller
             'longitude' => $request->longitude,
             'harga' => $request->harga,
             'catatan' => $request->catatan,
+            'tanggal'=>$date,
+            'hari'=>$hari
         ]);
     }
 

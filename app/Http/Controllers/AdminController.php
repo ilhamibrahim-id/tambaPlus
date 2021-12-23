@@ -538,8 +538,21 @@ class AdminController extends Controller
     public function chartHistory()
     {
         $data = Admin::where('username', '=', auth()->user()->username)->first();
-        $history = History::selectRaw("harga, created_at")->orderBy('created_at')->get();
+        $history =0;
+        $histori = [];
+        $date = date('Y-m-d');
+        $hari = ['minggu','senin','selasa','rabu','kamis','jumat','sabtu'];
+        for($i=0; $i<=6; $i++){
+            $histori[$i][$hari[$i]] = History::where('hari',$i)->where('tanggal',$date)->count();
+            
+        }
+            $harga = History::where('tanggal',$date)->get();
+            foreach($harga as $h)
+            {
+                $history += floatval($h->harga);
+            } 
+        //return $data1;
         // return $history;
-        return view('inti.History.history', compact('data', 'history'));
+        return view('inti.History.history', compact('data', 'histori','history'));
     }
 }

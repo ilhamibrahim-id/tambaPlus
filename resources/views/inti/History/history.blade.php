@@ -6,9 +6,9 @@
             <div class="card">
                 <div class="card-body">
                     <div id="chartContainer" style="height: 300px; width: 100%;"></div>
-                   @foreach($history as $a)
-                       {{ $a->harga }}
-                   @endforeach
+                  
+                       Total Pendapatan : Rp.{{ number_format($history) }}
+                  
                 </div>
             </div>
         </div>
@@ -24,18 +24,20 @@
     //Better to construct options first and then pass it as a parameter
     var options = {
         title: {
-            text: "Layanan"              
+            text: "History Pemesanan Hari Ini"              
         },
         data: [              
         {
             // Change type to "doughnut", "line", "splineArea", etc.
             type: "column",
             dataPoints: [
-                { label: "apple",  y: 10  },
-                { label: "orange", y: 15  },
-                { label: "banana", y: 25  },
-                { label: "mango",  y: 30  },
-                { label: "grape",  y: 28  }
+                { label: "Senin",  y: parseInt('{{$histori[1]['senin']}}')  },
+                { label: "Selasa", y: parseInt('{{$histori[2]['selasa']}}')  },
+                { label: "Rabu", y: parseInt('{{$histori[3]['rabu']}}')  },
+                { label: "Kamis",  y: parseInt('{{$histori[4]['kamis']}}')  },
+                { label: "Jumat",  y: parseInt('{{$histori[5]['jumat']}}')  },
+                { label: "Sabtu",  y: parseInt('{{$histori[6]['sabtu']}}')  },
+                { label: "Minggu",  y: parseInt('{{$histori[0]['minggu']}}')  }
             ]
         }
         ]
