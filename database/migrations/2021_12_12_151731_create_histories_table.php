@@ -22,6 +22,8 @@ class CreateHistoriesTable extends Migration
             $table->double('longitude');
             $table->string('harga')->nullable();
             $table->string('catatan')->nullable();
+            $table->unsignedBigInteger('hari')->nullable();
+            $table->date('tanggal')->nullable();
             $table->foreign('layanan_id')->references('id')->on('layanan');
             $table->foreign('customers_id')->references('id')->on('customers');
             $table->foreign('mitras_id')->references('id')->on('mitras');

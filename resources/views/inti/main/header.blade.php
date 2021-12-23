@@ -103,6 +103,14 @@
                             </a>
                         </li>
                     @endif
+                    @if (auth()->user()->role == 'admin')
+                        <li class="{{ request()->is('admin/histori') ? 'active' : '' }}">
+                            <a href="/admin/histori">
+                                <i class="nc-icon nc-laptop"></i>
+                                <p> CHistory</p>
+                            </a>
+                        </li>
+                    @endif
                     @if (auth()->user()->role == 'karyawan')
                         <li class="{{ request()->is('karyawan/dashboard') ? 'active' : '' }}">
                             <a href="/karyawan/dashboard">
