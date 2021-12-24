@@ -186,8 +186,8 @@
           </div>
           <div class="col-md-12">
             <!-- inner sub-title -->
-            <div class="content" style="text-align: center">
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/rmi_71fdXh0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="content embed-responsive embed-responsive-16by9" style="text-align: center">
+              <iframe class="embed-responsive-item" width="560" height="315" src="https://www.youtube.com/embed/rmi_71fdXh0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
           </div>
 
