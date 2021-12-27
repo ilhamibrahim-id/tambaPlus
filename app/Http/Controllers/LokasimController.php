@@ -20,7 +20,7 @@ class LokasimController extends Controller
 
     public function updatelokasi(Request $request)
     {
-        Lokasim::updated([
+        Lokasim::update([
             'latitude' => $request->latitude,
             'longitude' => $request->longitude,
         ]);
@@ -29,7 +29,7 @@ class LokasimController extends Controller
 
     public function updatestatus(Request $request)
     {
-        Lokasim::updated([
+        Lokasim::update([
             'status' => $request->status,
         ]);
         return response()->json(['data' => $request->all(), 'success' => true], 200);

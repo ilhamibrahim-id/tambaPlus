@@ -12,6 +12,12 @@ use Illuminate\Support\Facades\DB;
 
 class CustomerController extends Controller
 {
+    public function customer(Request $request)
+    {
+        $data = Customer::where('id',$request->customerid)->first();
+        return response()->json(['data'=>$data,'success' => true],200);
+    }
+
     public function index(Request $request)
     {
         if (!Customer::checkToken($request)) {
@@ -45,6 +51,7 @@ class CustomerController extends Controller
             'nama' => $request->nama,
             'email' => $request->username,
             'tlpn' => $request->tlpn,
+            'password' => $password,
         ]);
         $request->request->add(['password' => $plainPassword]);
         return $this->login($request);
@@ -83,7 +90,7 @@ class CustomerController extends Controller
             ], 401);
         }
         $user = Auth::user();
-        $data = Customer::all()->where('email', $user->username);
+        $data = Customer::all()->where('email', $user->username)->first();
 
         return response()->json([
             'success' => true,
@@ -110,7 +117,7 @@ class CustomerController extends Controller
             ]);
         } catch (JWTException $exception) {
             return response()->json([
-                'success' => false,
+                'success' => true,
                 'message' => 'Maaf, tidak bisa logged out'
             ], 500);
         }

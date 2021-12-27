@@ -46,13 +46,14 @@ class MitraController extends Controller
             'nama' => $request->nama,
             'email' => $request->username,
             'tlpn' => $request->tlpn,
+            'password' => $password,
             'totalorderan' => '0',
         ]);
         $idmitra = Mitra::select('id')->where('nik',$request->nik)->first();
-        Lokasim::created([
+        Lokasim::create([
             'mitras_id' => $idmitra->id,
-            'latitude' => $request->latitude,
-            'longitude' => $request->longitude,
+            'latitude' => 0,
+            'longitude' => 0,
             'status' => 'online',
         ]);
         $request->request->add(['password' => $plainPassword]);
@@ -92,7 +93,7 @@ class MitraController extends Controller
             ], 401);
         }
         $user = Auth::user();
-        $data = Mitra::all()->where('email', $user->username);
+        $data = Mitra::all()->where('email', $user->username)->first();
 
         return response()->json([
             'success' => true,

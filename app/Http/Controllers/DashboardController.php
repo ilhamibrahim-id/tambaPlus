@@ -32,4 +32,9 @@ class DashboardController extends Controller
         $data = Blog::orderBy('created_at','desc');
         return response()->json(['data' => $data],200);
     }
+
+    public function satulayanan(Request $request){
+        $data = Layanan::where('id',$request->layananid)->first();
+        return response()->json(['data' => $data, 'success' => true,],200);
+    }
 }

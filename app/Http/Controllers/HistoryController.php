@@ -16,7 +16,7 @@ class HistoryController extends Controller
     {
         $date = date('Y-m-d');
         $hari = Carbon::now()->dayOfWeek;
-        History::created([
+        History::create([
             'layanan_id' => $request->idlayanan,
             'customers_id' => $request->idcustomer,
             'mitras_id' => $request->idmitra,

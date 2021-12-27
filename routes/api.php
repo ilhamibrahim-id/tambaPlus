@@ -25,6 +25,7 @@ use Illuminate\Support\Facades\Route;
 // ROUTE API LAYANAN //
 ///////////////////////
 Route::get('/layananapi', [DashboardController::class, 'layananapi']);
+Route::post('/satulayanan', [DashboardController::class, 'satulayanan']);
 
 //////////////////////
 // ROUTE API BERITA //
@@ -39,6 +40,7 @@ Route::post('/loginc', [CustomerController::class, 'login']);
 Route::post('/updatec', [CustomerController::class, 'update']);
 Route::get('/customer', [CustomerController::class, 'index']);
 Route::get('/logoutc', [CustomerController::class, 'logout']);
+Route::post('/satucustomer', [CustomerController::class, 'customer']);
 
 /////////////////////
 // ROUTE API MITRA //
@@ -61,15 +63,16 @@ Route::get('/lokasim', [MitraController::class, 'index']);
 /////////////////////////
 Route::post('/tambahpesan', [PesananController::class, 'store']);
 Route::get('/hapuspesan', [PesananController::class, 'destroy']);
-Route::get('/pesanbaru', [PesananController::class, 'index']);
-Route::get('/pesanterdekat', [PesananController::class, 'terdekat']);
+Route::post('/pesanbaru', [PesananController::class, 'index']);
+Route::post('/pesanterdekat', [PesananController::class, 'terdekat']);
+Route::get('/semuapesan', [PesananController::class, 'semua']);
 
 /////////////////////////////
 // ROUTE API TRANSAKSI ACC //
 /////////////////////////////
 Route::post('/prosespesan', [AccpesanController::class, 'store']);
 Route::get('/selesaipesan', [AccpesanController::class, 'destroy']);
-Route::get('/pesankini', [AccpesanController::class, 'index']);
+Route::post('/pesankini', [AccpesanController::class, 'index']);
 
 ///////////////////////
 // ROUTE API HISTORY //
