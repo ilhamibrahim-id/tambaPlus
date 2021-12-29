@@ -49,7 +49,7 @@ class MitraController extends Controller
             'password' => $password,
             'totalorderan' => '0',
         ]);
-        $idmitra = Mitra::select('id')->where('nik',$request->nik)->first();
+        $idmitra = Mitra::select('id')->where('nik', $request->nik)->first();
         Lokasim::create([
             'mitras_id' => $idmitra->id,
             'latitude' => 0,

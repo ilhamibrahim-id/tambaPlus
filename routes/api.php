@@ -4,6 +4,7 @@ use App\Http\Controllers\AccpesanController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HistoryController;
+use App\Http\Controllers\LokasimController;
 use App\Http\Controllers\MitraController;
 use App\Http\Controllers\PesananController;
 use App\Models\Mobile\Pesanan;
@@ -54,9 +55,9 @@ Route::get('/logoutm', [MitraController::class, 'logout']);
 ////////////////////////////
 // ROUTE API LOKASI MITRA //
 ////////////////////////////
-Route::post('/updatelokasi', [MitraController::class, 'updatelokasi']);
-Route::post('/updatestatus', [MitraController::class, 'updatestatus']);
-Route::get('/lokasim', [MitraController::class, 'index']);
+Route::post('/updatelokasi', [LokasimController::class, 'updatelokasi']);
+Route::post('/updatestatus', [LokasimController::class, 'updatestatus']);
+Route::post('/lokasim', [LokasimController::class, 'index']);
 
 /////////////////////////
 // ROUTE API TRANSAKSI //

@@ -55,7 +55,8 @@ class PesananController extends Controller
             'layanan_id' => $request->layananid,
             'customers_id' => $request->customerid,
             'latitude' => $request->latitude,
-            'longitude' => $request->longitude
+            'longitude' => $request->longitude,
+            'catatan' => $request->catatan
         ]);
         return $this->index($request);
     }

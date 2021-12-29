@@ -14,8 +14,8 @@ class CustomerController extends Controller
 {
     public function customer(Request $request)
     {
-        $data = Customer::where('id',$request->customerid)->first();
-        return response()->json(['data'=>$data,'success' => true],200);
+        $data = Customer::where('id', $request->customerid)->first();
+        return response()->json(['data' => $data, 'success' => true], 200);
     }
 
     public function index(Request $request)

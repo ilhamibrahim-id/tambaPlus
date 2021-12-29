@@ -7,6 +7,7 @@ use App\Models\Mobile\Lokasim;
 use App\Models\Mobile\Pesanan;
 use App\Models\Mobile\Customer;
 use App\Models\Layanan;
+use App\Models\Mobile\Mitra;
 use Illuminate\Http\Request;
 
 class AccpesanController extends Controller
@@ -22,11 +23,13 @@ class AccpesanController extends Controller
             if ($pesanan != null) {
                 $layanan = Layanan::where('id', $pesanan->layanan_id)->first();
                 $customer = Customer::where('id', $pesanan->customers_id)->first();
+                $mitra = Mitra::where('id', $data->mitras_id)->first();
+                $idlokm = $data->lokasims_id;
                 $status = 'Sedang Berlangsung';
                 $lat = $pesanan->latitude;
                 $long = $pesanan->longitude;
                 // return $pesanan;
-                return response()->json(['latitude' => $lat,'longitude'=>$long,'data' => $data, 'layanan' => $layanan, 'status' => $status, 'pesanan' => $pesanan, 'customer' => $customer, 'success' => true], 200);
+                return response()->json(['idlokm' => $idlokm, 'mitra' => $mitra, 'latitude' => $lat, 'longitude' => $long, 'data' => $data, 'layanan' => $layanan, 'status' => $status, 'pesanan' => $pesanan, 'customer' => $customer, 'success' => true], 200);
             } else {
                 return response()->json(['success' => false]);
             }
